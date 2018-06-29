@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xiewangdong.coding.me/Blog">
-  <title>小熊开大的窝</title>
+  <title>QThread多线程 | 小熊开大的窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="QThread类为用户管理线程提供一种平台无关的途径（接口），主要用于管理线程，并不实际实现用户功能。 如需实现功能，可以新建一个继承自QObject的类，并在该类总完成功能实现代码，在主线程中创建该类的实例，并执行moveToThread函数，将该类的实例放于线程中去执行。 由于在主线程创建了实例，该类会立即执行构造函数，如果构造函数中初始化了变量，则该变量属于主线程，这样将会在实例moveT">
-<meta name="keywords" content="Qt WPF">
+<meta name="keywords" content="Qt QThread 多线程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小熊开大的窝">
+<meta property="og:title" content="QThread多线程">
 <meta property="og:url" content="http://xiewangdong.coding.me/Blog/2018/06/29/QThread多线程操作/index.html">
 <meta property="og:site_name" content="小熊开大的窝">
 <meta property="og:description" content="QThread类为用户管理线程提供一种平台无关的途径（接口），主要用于管理线程，并不实际实现用户功能。 如需实现功能，可以新建一个继承自QObject的类，并在该类总完成功能实现代码，在主线程中创建该类的实例，并执行moveToThread函数，将该类的实例放于线程中去执行。 由于在主线程创建了实例，该类会立即执行构造函数，如果构造函数中初始化了变量，则该变量属于主线程，这样将会在实例moveT">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-23T16:31:13.077Z">
+<meta property="og:updated_time" content="2018-06-29T09:03:27.477Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小熊开大的窝">
+<meta name="twitter:title" content="QThread多线程">
 <meta name="twitter:description" content="QThread类为用户管理线程提供一种平台无关的途径（接口），主要用于管理线程，并不实际实现用户功能。 如需实现功能，可以新建一个继承自QObject的类，并在该类总完成功能实现代码，在主线程中创建该类的实例，并执行moveToThread函数，将该类的实例放于线程中去执行。 由于在主线程创建了实例，该类会立即执行构造函数，如果构造函数中初始化了变量，则该变量属于主线程，这样将会在实例moveT">
   
     <link rel="alternative" href="/atom.xml" title="小熊开大的窝" type="application/atom+xml">
@@ -59,8 +59,6 @@
 			<ul>
 			
 				<li><a href="/Blog/">主页</a></li>
-	        
-				<li><a href="/Blog/tags/随笔/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -112,8 +110,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -130,9 +126,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/Blog/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/Blog/tags/随笔/">随笔</a></li>
+					<li style="width: 100%"><a href="/Blog/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -149,6 +143,21 @@
           <div id="js-content" class="content-ll">
             <article id="post-QThread多线程操作" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      QThread多线程
+    </h1>
+  
+
+        
+        <a href="/Blog/2018/06/29/QThread多线程操作/" class="archive-article-date">
+  	<time datetime="2018-06-29T08:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -168,6 +177,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Qt QThread 多线程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -236,14 +256,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          QTreeWidget用法
         
       </div>
     </a>
   
   
-    <a href="/Blog/2018/06/29/QTextEdit右键菜单/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/Blog/2018/06/29/QT使用第三方库/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Qt加载第三方库</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -369,7 +389,91 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Qt Excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Qt QProcess</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Qt QSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Qt QTableWidget</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Qt QString char</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt 右键菜单</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Qt QTreeWidget</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Qt QThread 多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Qt Lib Dll</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt Windows消息</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Qt Icon 图标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Qt QLibrary Dll</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Qt ActiveX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt Oracle 数据库 OCI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Qt 预编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">VC Dll</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WPF Word Docx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Qt XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt 串口 serial</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt 信号 槽</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Qt icmp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Qt 托盘</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -377,7 +481,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
+                <a href="javascript:void(0)" class="js-tag color1">Qt Version</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Qt 国际化 中文</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt .ini</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Qt QUdpSocket 网络</a>
               </li>
             
             <div class="clearfix"></div>

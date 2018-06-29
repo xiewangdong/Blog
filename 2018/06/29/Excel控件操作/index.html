@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xiewangdong.coding.me/Blog">
-  <title>小熊开大的窝</title>
+  <title>使用Excel控件读取内容 | 小熊开大的窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用Excel控件读取内容。 Pro文件添加：1QT +=  axcontainer 包含头文件：1#include &amp;lt;QAxObject&amp;gt; 代码：123456789101112131415161718192021222324252627282930313233QAxObject* excel=newQAxObject(this);excel-&amp;gt;setControl(&amp;quot;">
-<meta name="keywords" content="Qt WPF">
+  <meta name="description" content="Pro文件添加：1QT +=  axcontainer 包含头文件：1#include &amp;lt;QAxObject&amp;gt; 代码：123456789101112131415161718192021222324252627282930313233QAxObject* excel=newQAxObject(this);excel-&amp;gt;setControl(&amp;quot;Excel.Applicati">
+<meta name="keywords" content="Qt Excel">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小熊开大的窝">
+<meta property="og:title" content="使用Excel控件读取内容">
 <meta property="og:url" content="http://xiewangdong.coding.me/Blog/2018/06/29/Excel控件操作/index.html">
 <meta property="og:site_name" content="小熊开大的窝">
-<meta property="og:description" content="使用Excel控件读取内容。 Pro文件添加：1QT +=  axcontainer 包含头文件：1#include &amp;lt;QAxObject&amp;gt; 代码：123456789101112131415161718192021222324252627282930313233QAxObject* excel=newQAxObject(this);excel-&amp;gt;setControl(&amp;quot;">
+<meta property="og:description" content="Pro文件添加：1QT +=  axcontainer 包含头文件：1#include &amp;lt;QAxObject&amp;gt; 代码：123456789101112131415161718192021222324252627282930313233QAxObject* excel=newQAxObject(this);excel-&amp;gt;setControl(&amp;quot;Excel.Applicati">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-23T16:31:13.104Z">
+<meta property="og:updated_time" content="2018-06-29T08:56:30.077Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小熊开大的窝">
-<meta name="twitter:description" content="使用Excel控件读取内容。 Pro文件添加：1QT +=  axcontainer 包含头文件：1#include &amp;lt;QAxObject&amp;gt; 代码：123456789101112131415161718192021222324252627282930313233QAxObject* excel=newQAxObject(this);excel-&amp;gt;setControl(&amp;quot;">
+<meta name="twitter:title" content="使用Excel控件读取内容">
+<meta name="twitter:description" content="Pro文件添加：1QT +=  axcontainer 包含头文件：1#include &amp;lt;QAxObject&amp;gt; 代码：123456789101112131415161718192021222324252627282930313233QAxObject* excel=newQAxObject(this);excel-&amp;gt;setControl(&amp;quot;Excel.Applicati">
   
     <link rel="alternative" href="/atom.xml" title="小熊开大的窝" type="application/atom+xml">
   
@@ -59,8 +59,6 @@
 			<ul>
 			
 				<li><a href="/Blog/">主页</a></li>
-	        
-				<li><a href="/Blog/tags/随笔/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -112,8 +110,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -130,9 +126,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/Blog/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/Blog/tags/随笔/">随笔</a></li>
+					<li style="width: 100%"><a href="/Blog/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -150,12 +144,26 @@
             <article id="post-Excel控件操作" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用Excel控件读取内容
+    </h1>
+  
+
+        
+        <a href="/Blog/2018/06/29/Excel控件操作/" class="archive-article-date">
+  	<time datetime="2018-06-29T08:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用Excel控件读取内容。</p>
-<h2 id="Pro文件添加："><a href="#Pro文件添加：" class="headerlink" title="Pro文件添加："></a>Pro文件添加：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QT +=  axcontainer</span><br></pre></td></tr></table></figure>
+        <h2 id="Pro文件添加："><a href="#Pro文件添加：" class="headerlink" title="Pro文件添加："></a>Pro文件添加：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QT +=  axcontainer</span><br></pre></td></tr></table></figure>
 <h2 id="包含头文件："><a href="#包含头文件：" class="headerlink" title="包含头文件："></a>包含头文件：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QAxObject&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">QAxObject* excel=newQAxObject(this);</span><br><span class="line">excel-&gt;setControl(&quot;Excel.Application&quot;);//连接Excel控件</span><br><span class="line">excel-&gt;dynamicCall(&quot;SetVisible(bool Visible)&quot;,&quot;false&quot;);//设置界面不可见</span><br><span class="line">excel-&gt;setProperty(&quot;DisplayAlerts&quot;,false);//设置静默模式，关闭或保存时不会弹出警告提示</span><br><span class="line"> </span><br><span class="line">QAxObject *workbooks=excel-&gt;querySubObject(&quot;WorkBooks&quot;);//获取工作区控件指针</span><br><span class="line">QAxObject *workbook=workbooks-&gt;querySubObject(&quot;Open(const QString&amp;)&quot;,&quot;C:\excel.xls&quot;);//打开Excel文件</span><br><span class="line">QAxObject *sheet=workbook-&gt;querySubObject(&quot;WorkSheets(int)&quot;,1);//获取sheet1控件指针</span><br><span class="line"></span><br><span class="line">//获取excel文件使用区的行数 </span><br><span class="line">int row=sheet-&gt;querySubObject(&quot;UsedRange&quot;)-&gt;querySubObject(&quot;Rows&quot;)-&gt;property(&quot;Count&quot;).toInt();</span><br><span class="line"></span><br><span class="line">if(row&lt;1)</span><br><span class="line">&#123;</span><br><span class="line">   QMessageBox::warning(this,&quot;错误&quot;,&quot;Excel文件中行数不足！&quot;);</span><br><span class="line">    return;</span><br><span class="line">&#125;​</span><br><span class="line">for(int i=2;i&lt;=row;i++)</span><br><span class="line">&#123;</span><br><span class="line">    //获取第i行、第1列单元格内容</span><br><span class="line">    QAxObject* cell1=sheet-&gt;querySubObject(&quot;Cells(int,int)&quot;,i,1);</span><br><span class="line">    QAxObject* cell2=sheet-&gt;querySubObject(&quot;Cells(int,int)&quot;,i,2);</span><br><span class="line">    QAxObject* cell3=sheet-&gt;querySubObject(&quot;Cells(int,int)&quot;,i,3);</span><br><span class="line"></span><br><span class="line">    qDebug()&lt;&lt;cell1-&gt;dynamicCall(&quot;Value2()&quot;).toString();</span><br><span class="line">    qDebug()&lt;&lt;cell2-&gt;dynamicCall(&quot;Value2()&quot;).toString();</span><br><span class="line">    qDebug()&lt;&lt;cell3-&gt;dynamicCall(&quot;Value2()&quot;).toString();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//关闭工作簿，退出Excel控件连接，防止Excel文件占用</span><br><span class="line">workbook-&gt;dynamicCall(&quot;Close()&quot;);</span><br><span class="line">excel-&gt;dynamicCall(&quot;Quit()&quot;);</span><br><span class="line">delete excel;</span><br></pre></td></tr></table></figure>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">QAxObject* excel=newQAxObject(this);</span><br><span class="line">excel-&gt;setControl(&quot;Excel.Application&quot;);//连接Excel控件</span><br><span class="line">excel-&gt;dynamicCall(&quot;SetVisible(bool Visible)&quot;,&quot;false&quot;);//设置界面不可见</span><br><span class="line">excel-&gt;setProperty(&quot;DisplayAlerts&quot;,false);//设置静默模式，关闭或保存时不会弹出警告提示</span><br><span class="line"> </span><br><span class="line">QAxObject *workbooks=excel-&gt;querySubObject(&quot;WorkBooks&quot;);//获取工作区控件指针</span><br><span class="line">QAxObject *workbook=workbooks-&gt;querySubObject(&quot;Open(const QString&amp;)&quot;,&quot;C:\excel.xls&quot;);//打开Excel文件</span><br><span class="line">QAxObject *sheet=workbook-&gt;querySubObject(&quot;WorkSheets(int)&quot;,1);//获取sheet1控件指针</span><br><span class="line"></span><br><span class="line">//获取excel文件使用区的行数 </span><br><span class="line">int row=sheet-&gt;querySubObject(&quot;UsedRange&quot;)-&gt;querySubObject(&quot;Rows&quot;)-&gt;property(&quot;Count&quot;).toInt();</span><br><span class="line"></span><br><span class="line">if(row&lt;1)</span><br><span class="line">&#123;</span><br><span class="line">   QMessageBox::warning(this,&quot;错误&quot;,&quot;Excel文件中行数不足！&quot;);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">for(int i=2;i&lt;=row;i++)</span><br><span class="line">&#123;</span><br><span class="line">    //获取第i行、第1列单元格内容</span><br><span class="line">    QAxObject* cell1=sheet-&gt;querySubObject(&quot;Cells(int,int)&quot;,i,1);</span><br><span class="line">    QAxObject* cell2=sheet-&gt;querySubObject(&quot;Cells(int,int)&quot;,i,2);</span><br><span class="line">    QAxObject* cell3=sheet-&gt;querySubObject(&quot;Cells(int,int)&quot;,i,3);</span><br><span class="line"></span><br><span class="line">    qDebug()&lt;&lt;cell1-&gt;dynamicCall(&quot;Value2()&quot;).toString();</span><br><span class="line">    qDebug()&lt;&lt;cell2-&gt;dynamicCall(&quot;Value2()&quot;).toString();</span><br><span class="line">    qDebug()&lt;&lt;cell3-&gt;dynamicCall(&quot;Value2()&quot;).toString();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//关闭工作簿，退出Excel控件连接，防止Excel文件占用</span><br><span class="line">workbook-&gt;dynamicCall(&quot;Close()&quot;);</span><br><span class="line">excel-&gt;dynamicCall(&quot;Quit()&quot;);</span><br><span class="line">delete excel;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -164,6 +172,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Qt Excel</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -228,18 +247,18 @@
   
 <nav id="article-nav">
   
-    <a href="/Blog/2018/06/29/QProcess执行外部程序/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Blog/2018/06/29/VC创建DLL动态链接库/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          VC生成动态链接库
         
       </div>
     </a>
   
   
-    <a href="/Blog/2018/06/29/QT预编译头文件，加快编译速度/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/Blog/2018/06/29/QSS暗黑色/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">QSS暗金色</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -365,7 +384,91 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Qt Excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Qt QProcess</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Qt QSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Qt QTableWidget</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Qt QString char</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt 右键菜单</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Qt QTreeWidget</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Qt QThread 多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Qt Lib Dll</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt Windows消息</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Qt Icon 图标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Qt QLibrary Dll</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Qt ActiveX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt Oracle 数据库 OCI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Qt 预编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">VC Dll</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WPF Word Docx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Qt XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt 串口 serial</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt 信号 槽</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Qt icmp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Qt 托盘</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -373,7 +476,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
+                <a href="javascript:void(0)" class="js-tag color1">Qt Version</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Qt 国际化 中文</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt .ini</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Qt QUdpSocket 网络</a>
               </li>
             
             <div class="clearfix"></div>
