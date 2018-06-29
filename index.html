@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xiewangdong.coding.me/Blog">
-  <title>小熊开大的窝</title>
+  <title>熊窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="只要死不了，就能熬得过。">
 <meta name="keywords" content="Qt WPF">
 <meta property="og:type" content="website">
-<meta property="og:title" content="小熊开大的窝">
+<meta property="og:title" content="熊窝">
 <meta property="og:url" content="http://xiewangdong.coding.me/Blog/index.html">
-<meta property="og:site_name" content="小熊开大的窝">
+<meta property="og:site_name" content="熊窝">
 <meta property="og:description" content="只要死不了，就能熬得过。">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小熊开大的窝">
+<meta name="twitter:title" content="熊窝">
 <meta name="twitter:description" content="只要死不了，就能熬得过。">
   
-    <link rel="alternative" href="/atom.xml" title="小熊开大的窝" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="熊窝" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -47,11 +47,13 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/Blog/" class="profilepic">
-			<img src="https://avatars3.githubusercontent.com/u/25434796?s=460&amp;v=4" class="js-avatar">
+			<img src="/assets/images/touxiang.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/Blog/">小熊开大</a></h1>
 		</hgroup>
+		
+		<p class="header-subtitle">我和我的骄傲，怎能轻易死掉。</p>
 		
 
 		<nav class="header-menu">
@@ -99,11 +101,13 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="https://avatars3.githubusercontent.com/u/25434796?s=460&amp;v=4" class="js-avatar">
+				<img src="/assets/images/touxiang.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">小熊开大</h1>
 			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>我和我的骄傲，怎能轻易死掉。<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -142,19 +146,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-QUdpSocket使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-VC创建DLL动态链接库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Blog/2018/06/29/QUdpSocket使用/">QUdpSocket使用</a>
+      <a class="article-title" href="/Blog/2018/06/29/VC创建DLL动态链接库/">VC生成动态链接库</a>
     </h1>
   
 
         
-        <a href="/Blog/2018/06/29/QUdpSocket使用/" class="archive-article-date">
+        <a href="/Blog/2018/06/29/VC创建DLL动态链接库/" class="archive-article-date">
   	<time datetime="2018-06-29T08:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
 </a>
         
@@ -162,9 +166,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Pro文件中添加"><a href="#Pro文件中添加" class="headerlink" title="Pro文件中添加"></a>Pro文件中添加</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QT += network</span><br></pre></td></tr></table></figure>
-<h2 id="需包含的头文件"><a href="#需包含的头文件" class="headerlink" title="需包含的头文件"></a>需包含的头文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QUdpSocket&gt;</span><br><span class="line">#include &lt;QByteArray&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">/*******初始化UdpSocket******/</span><br><span class="line">QUdpSocket *udpServer=new QUdpSocket(this);</span><br><span class="line">//将udpServer绑定在主机所有IPv4地址上，端口号为25510，用于接收报文</span><br><span class="line">if(udpServer-&gt;bind(QHostAddress::AnyIPv4,25510))</span><br><span class="line">&#123;</span><br><span class="line">    //当QUdpSocket收到报文后，会发射readyRead()信号，将此信号与程序的recNewConnection()槽连接</span><br><span class="line">    connect(udpServer,SIGNAL(readyRead()),this,SLOT(recNewConnection()));</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">    udpServer-&gt;close();</span><br><span class="line">    QMessageBox::warning(this,&quot;错误&quot;,udpServer-&gt;errorString());</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">//发送udp报文</span><br><span class="line">udpServer-&gt;writeDatagram(QByteArray::number(1),QHostAddress(&quot;127.0.0.1&quot;),25511);</span><br><span class="line"> </span><br><span class="line">程序的新报文处理槽：</span><br><span class="line">void Widget::recNewConnection()</span><br><span class="line">&#123;</span><br><span class="line">    //当udpServer有未读新报文时</span><br><span class="line">    while (udpServer-&gt;hasPendingDatagrams())</span><br><span class="line">    &#123;</span><br><span class="line">        QByteArray datagram;</span><br><span class="line">        datagram.resize(udpServer-&gt;pendingDatagramSize());</span><br><span class="line">        QHostAddress sender;</span><br><span class="line">        quint16 senderPort;</span><br><span class="line">        //读取报文</span><br><span class="line">        udpServer-&gt;readDatagram(datagram.data(), datagram.size(),</span><br><span class="line">                                &amp;sender, &amp;senderPort);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <ol>
+<li>在VC中新建“Win32 Dynamic-LinkLibrary”工程，选择“简单模板”。</li>
+<li>在cpp文件中，使用</li>
+<li>extern “C”__declspec(dllexport)﻿void fun();</li>
+<li>关键字定义需要导出的函数接口，而后定义该函数的实现。</li>
+<li>DllMain函数为DLL的入口函数。</li>
+<li>动态连接口可以将静态链接库和动态链接库一起包含，但静态链接只能包含静态链接库，并且无法打包在一起。</li>
+</ol>
 
       
 
@@ -178,7 +187,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Qt QUdpSocket 网络</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VC Dll</a>
         		</li>
       		
 		</ul>
@@ -188,83 +197,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/2018/06/29/QUdpSocket使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Excel控件操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/2018/06/29/Excel控件操作/">使用Excel控件读取内容</a>
-    </h1>
-  
-
-        
-        <a href="/Blog/2018/06/29/Excel控件操作/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Pro文件添加："><a href="#Pro文件添加：" class="headerlink" title="Pro文件添加："></a>Pro文件添加：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QT +=  axcontainer</span><br></pre></td></tr></table></figure>
-<h2 id="包含头文件："><a href="#包含头文件：" class="headerlink" title="包含头文件："></a>包含头文件：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QAxObject&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">QAxObject* excel=newQAxObject(this);</span><br><span class="line">excel-&gt;setControl(&quot;Excel.Application&quot;);//连接Excel控件</span><br><span class="line">excel-&gt;dynamicCall(&quot;SetVisible(bool Visible)&quot;,&quot;false&quot;);//设置界面不可见</span><br><span class="line">excel-&gt;setProperty(&quot;DisplayAlerts&quot;,false);//设置静默模式，关闭或保存时不会弹出警告提示</span><br><span class="line"> </span><br><span class="line">QAxObject *workbooks=excel-&gt;querySubObject(&quot;WorkBooks&quot;);//获取工作区控件指针</span><br><span class="line">QAxObject *workbook=workbooks-&gt;querySubObject(&quot;Open(const QString&amp;)&quot;,&quot;C:\excel.xls&quot;);//打开Excel文件</span><br><span class="line">QAxObject *sheet=workbook-&gt;querySubObject(&quot;WorkSheets(int)&quot;,1);//获取sheet1控件指针</span><br><span class="line"></span><br><span class="line">//获取excel文件使用区的行数 </span><br><span class="line">int row=sheet-&gt;querySubObject(&quot;UsedRange&quot;)-&gt;querySubObject(&quot;Rows&quot;)-&gt;property(&quot;Count&quot;).toInt();</span><br><span class="line"></span><br><span class="line">if(row&lt;1)</span><br><span class="line">&#123;</span><br><span class="line">   QMessageBox::warning(this,&quot;错误&quot;,&quot;Excel文件中行数不足！&quot;);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">for(int i=2;i&lt;=row;i++)</span><br><span class="line">&#123;</span><br><span class="line">    //获取第i行、第1列单元格内容</span><br><span class="line">    QAxObject* cell1=sheet-&gt;querySubObject(&quot;Cells(int,int)&quot;,i,1);</span><br><span class="line">    QAxObject* cell2=sheet-&gt;querySubObject(&quot;Cells(int,int)&quot;,i,2);</span><br><span class="line">    QAxObject* cell3=sheet-&gt;querySubObject(&quot;Cells(int,int)&quot;,i,3);</span><br><span class="line"></span><br><span class="line">    qDebug()&lt;&lt;cell1-&gt;dynamicCall(&quot;Value2()&quot;).toString();</span><br><span class="line">    qDebug()&lt;&lt;cell2-&gt;dynamicCall(&quot;Value2()&quot;).toString();</span><br><span class="line">    qDebug()&lt;&lt;cell3-&gt;dynamicCall(&quot;Value2()&quot;).toString();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//关闭工作簿，退出Excel控件连接，防止Excel文件占用</span><br><span class="line">workbook-&gt;dynamicCall(&quot;Close()&quot;);</span><br><span class="line">excel-&gt;dynamicCall(&quot;Quit()&quot;);</span><br><span class="line">delete excel;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Qt Excel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/2018/06/29/Excel控件操作/">展开全文 >></a>
+          <a class="article-more-a" href="/Blog/2018/06/29/VC创建DLL动态链接库/">展开全文 >></a>
         </p>
       
 
@@ -370,81 +303,6 @@
 
 
   
-    <article id="post-QTableWidget用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/2018/06/29/QTableWidget用法/">QTableWidget用法</a>
-    </h1>
-  
-
-        
-        <a href="/Blog/2018/06/29/QTableWidget用法/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="需包含的头文件"><a href="#需包含的头文件" class="headerlink" title="需包含的头文件"></a>需包含的头文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QTableWidget&gt;</span><br><span class="line">#include &lt;QHeaderView&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">/*******初始化客户端列表QTableWidget实例为clientListTab ******/</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setRowCount(0);</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setColumnCount(3);</span><br><span class="line">//设置水平表头</span><br><span class="line">QStringList header;</span><br><span class="line">header&lt;&lt;&quot;客户端IP&quot;&lt;&lt;&quot;端口&quot;&lt;&lt;&quot;发送情况&quot;;</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setHorizontalHeaderLabels(header);</span><br><span class="line">//隐藏垂直表头</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;verticalHeader()-&gt;setVisible(false);</span><br><span class="line">//设置整行选择和多行选择</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setSelectionMode(QAbstractItemView::MultiSelection);</span><br><span class="line">//设置列表内容只读</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);</span><br><span class="line">//设置默认行高</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;verticalHeader()-&gt;setDefaultSectionSize(20);</span><br><span class="line">//设置默认焦点</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setFocusPolicy(Qt::NoFocus);</span><br><span class="line">//在末尾插入1行</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;insertRow(this-&gt;ui-&gt;clientListTab-&gt;rowCount());</span><br><span class="line">//填写表格内容，row是从0开始计数</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setItem(1,0,new QTableWidgetItem(&quot;192.168.1.1&quot;));</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setItem(1,1,new QTableWidgetItem(&quot;25510&quot;));</span><br><span class="line">//设置隐藏列</span><br><span class="line">ui-&gt;clientListTab-&gt;setColumnHidden(2,true);</span><br><span class="line">//设置表头宽度随窗口大小拉伸</span><br><span class="line">ui-&gt;clientListTab-&gt;horizontalHeader()-&gt;setSectionResizeMode(QHeaderView::Stretch);</span><br><span class="line">//设置第1列宽度为自适应（用户不可更改）并设置其宽度为35</span><br><span class="line">ui-&gt;clientListTab-&gt;horizontalHeader()-&gt;setSectionResizeMode(0,QHeaderView::Fixed);</span><br><span class="line">ui-&gt;clientListTab-&gt;horizontalHeader()-&gt;resizeSection(0,40);</span><br><span class="line">//设置表头文字居中</span><br><span class="line">ui-&gt;clientListTab-&gt;horizontalHeader()-&gt;setDefaultAlignment(Qt::AlignCenter);</span><br><span class="line">    </span><br><span class="line">//获取选中的单元格列表</span><br><span class="line">QList&lt;QTableWidgetItem *&gt; selectItem=this-&gt;ui-&gt;clientListTab-&gt;selectedItems();</span><br><span class="line">//利用for循环遍历被选中的单元格</span><br><span class="line">for(int i=selectItem.count();i&gt;0;i--)</span><br><span class="line">&#123;</span><br><span class="line">    //发射removeRow(int row)信号，删除该行</span><br><span class="line">    this-&gt;ui-&gt;clientListTab-&gt;removeRow(selectItem[i-1]-&gt;row());</span><br><span class="line">&#125;</span><br><span class="line">///注意：QTableWidget中单元格与1个QTableWidgetItem指针区域绑定，</span><br><span class="line">/// 在更改单元格内容时，先判断该单元格是否已绑定，如已绑定，则获取</span><br><span class="line">/// 该QTableWidgetItem指针再进行更改</span><br><span class="line">if(ui-&gt;clientListTab-&gt;item(row,2)!=0)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;clientListTab-&gt;item(row,2)-&gt;setText(&quot;&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;clientListTab-&gt;setItem(row,2,new QTableWidgetItem(&quot;&quot;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Qt QTableWidget</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/2018/06/29/QTableWidget用法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-QString与char互换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -491,6 +349,81 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/Blog/2018/06/29/QString与char互换/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-QTableWidget用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Blog/2018/06/29/QTableWidget用法/">QTableWidget用法</a>
+    </h1>
+  
+
+        
+        <a href="/Blog/2018/06/29/QTableWidget用法/" class="archive-article-date">
+  	<time datetime="2018-06-29T08:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="需包含的头文件"><a href="#需包含的头文件" class="headerlink" title="需包含的头文件"></a>需包含的头文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QTableWidget&gt;</span><br><span class="line">#include &lt;QHeaderView&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">/*******初始化客户端列表QTableWidget实例为clientListTab ******/</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setRowCount(0);</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setColumnCount(3);</span><br><span class="line">//设置水平表头</span><br><span class="line">QStringList header;</span><br><span class="line">header&lt;&lt;&quot;客户端IP&quot;&lt;&lt;&quot;端口&quot;&lt;&lt;&quot;发送情况&quot;;</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setHorizontalHeaderLabels(header);</span><br><span class="line">//隐藏垂直表头</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;verticalHeader()-&gt;setVisible(false);</span><br><span class="line">//设置整行选择和多行选择</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setSelectionMode(QAbstractItemView::MultiSelection);</span><br><span class="line">//设置列表内容只读</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);</span><br><span class="line">//设置默认行高</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;verticalHeader()-&gt;setDefaultSectionSize(20);</span><br><span class="line">//设置默认焦点</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setFocusPolicy(Qt::NoFocus);</span><br><span class="line">//在末尾插入1行</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;insertRow(this-&gt;ui-&gt;clientListTab-&gt;rowCount());</span><br><span class="line">//填写表格内容，row是从0开始计数</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setItem(1,0,new QTableWidgetItem(&quot;192.168.1.1&quot;));</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setItem(1,1,new QTableWidgetItem(&quot;25510&quot;));</span><br><span class="line">//设置隐藏列</span><br><span class="line">ui-&gt;clientListTab-&gt;setColumnHidden(2,true);</span><br><span class="line">//设置表头宽度随窗口大小拉伸</span><br><span class="line">ui-&gt;clientListTab-&gt;horizontalHeader()-&gt;setSectionResizeMode(QHeaderView::Stretch);</span><br><span class="line">//设置第1列宽度为自适应（用户不可更改）并设置其宽度为35</span><br><span class="line">ui-&gt;clientListTab-&gt;horizontalHeader()-&gt;setSectionResizeMode(0,QHeaderView::Fixed);</span><br><span class="line">ui-&gt;clientListTab-&gt;horizontalHeader()-&gt;resizeSection(0,40);</span><br><span class="line">//设置表头文字居中</span><br><span class="line">ui-&gt;clientListTab-&gt;horizontalHeader()-&gt;setDefaultAlignment(Qt::AlignCenter);</span><br><span class="line">    </span><br><span class="line">//获取选中的单元格列表</span><br><span class="line">QList&lt;QTableWidgetItem *&gt; selectItem=this-&gt;ui-&gt;clientListTab-&gt;selectedItems();</span><br><span class="line">//利用for循环遍历被选中的单元格</span><br><span class="line">for(int i=selectItem.count();i&gt;0;i--)</span><br><span class="line">&#123;</span><br><span class="line">    //发射removeRow(int row)信号，删除该行</span><br><span class="line">    this-&gt;ui-&gt;clientListTab-&gt;removeRow(selectItem[i-1]-&gt;row());</span><br><span class="line">&#125;</span><br><span class="line">///注意：QTableWidget中单元格与1个QTableWidgetItem指针区域绑定，</span><br><span class="line">/// 在更改单元格内容时，先判断该单元格是否已绑定，如已绑定，则获取</span><br><span class="line">/// 该QTableWidgetItem指针再进行更改</span><br><span class="line">if(ui-&gt;clientListTab-&gt;item(row,2)!=0)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;clientListTab-&gt;item(row,2)-&gt;setText(&quot;&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;clientListTab-&gt;setItem(row,2,new QTableWidgetItem(&quot;&quot;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Qt QTableWidget</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Blog/2018/06/29/QTableWidget用法/">展开全文 >></a>
         </p>
       
 
@@ -756,6 +689,84 @@
 
 
   
+    <article id="post-QT使用第三方库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Blog/2018/06/29/QT使用第三方库/">Qt加载第三方库</a>
+    </h1>
+  
+
+        
+        <a href="/Blog/2018/06/29/QT使用第三方库/" class="archive-article-date">
+  	<time datetime="2018-06-29T08:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="在-pro文件中添加："><a href="#在-pro文件中添加：" class="headerlink" title="在.pro文件中添加："></a>在.pro文件中添加：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INCLUDEPATH += 3rdparty/MyLibrary/include</span><br><span class="line">LIBS += -L&quot;3rdparty/MyLibrary/lib&quot; -lMyLibrary</span><br></pre></td></tr></table></figure>
+<ol>
+<li>表达式的第一部分（-L…）：使链接器知道应该在哪个目录中查找库文件。双引号只在路径包含空格时才需要，因此此处可以省略。</li>
+<li>表达式的第二部分（-l…）：告诉链接器链接哪些库。对于 Windows 和 UNIX 平台，有两个不同的库文件：MyLibrary.lib 和 libMyLibrary.so，没有必要指定 .lib 扩展名，也不必指定 lib 前缀（在 UNIX 平台上）。</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Qt Lib Dll</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Blog/2018/06/29/QT使用第三方库/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-QT向Windows窗口发送消息" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -831,19 +842,19 @@
 
 
   
-    <article id="post-QT使用第三方库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-QT程序添加ICON图标" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Blog/2018/06/29/QT使用第三方库/">Qt加载第三方库</a>
+      <a class="article-title" href="/Blog/2018/06/29/QT程序添加ICON图标/">Qt添加程序图标</a>
     </h1>
   
 
         
-        <a href="/Blog/2018/06/29/QT使用第三方库/" class="archive-article-date">
+        <a href="/Blog/2018/06/29/QT程序添加ICON图标/" class="archive-article-date">
   	<time datetime="2018-06-29T08:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
 </a>
         
@@ -851,11 +862,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="在-pro文件中添加："><a href="#在-pro文件中添加：" class="headerlink" title="在.pro文件中添加："></a>在.pro文件中添加：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INCLUDEPATH += 3rdparty/MyLibrary/include</span><br><span class="line">LIBS += -L&quot;3rdparty/MyLibrary/lib&quot; -lMyLibrary</span><br></pre></td></tr></table></figure>
-<ol>
-<li>表达式的第一部分（-L…）：使链接器知道应该在哪个目录中查找库文件。双引号只在路径包含空格时才需要，因此此处可以省略。</li>
-<li>表达式的第二部分（-l…）：告诉链接器链接哪些库。对于 Windows 和 UNIX 平台，有两个不同的库文件：MyLibrary.lib 和 libMyLibrary.so，没有必要指定 .lib 扩展名，也不必指定 lib 前缀（在 UNIX 平台上）。</li>
-</ol>
+        <p>将icon文件拷贝至源码目录，例如myappico.ico；<br>Pro文件中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RC_ICONS = myappico.ico</span><br></pre></td></tr></table></figure>
+<p>重新构建项目，即可。</p>
 
       
 
@@ -869,7 +878,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Qt Lib Dll</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Qt Icon 图标</a>
         		</li>
       		
 		</ul>
@@ -879,7 +888,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/2018/06/29/QT使用第三方库/">展开全文 >></a>
+          <a class="article-more-a" href="/Blog/2018/06/29/QT程序添加ICON图标/">展开全文 >></a>
         </p>
       
 
@@ -1006,7 +1015,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Qt Excel</a>
+                <a href="javascript:void(0)" class="js-tag color2">Qt QProcess</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1014,15 +1023,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt QProcess</a>
+                <a href="javascript:void(0)" class="js-tag color1">Qt QString char</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Qt QTableWidget</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt QString char</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1038,11 +1043,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt Windows消息</a>
+                <a href="javascript:void(0)" class="js-tag color1">Qt Lib Dll</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt Lib Dll</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt Windows消息</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1050,11 +1055,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt QLibrary Dll</a>
+                <a href="javascript:void(0)" class="js-tag color1">Qt ActiveX</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt ActiveX</a>
+                <a href="javascript:void(0)" class="js-tag color1">Qt QLibrary Dll</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1074,15 +1079,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WPF Word Docx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Qt XML</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WPF Word Docx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Qt 串口 serial</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt 信号 槽</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1098,19 +1107,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Qt 国际化 中文</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Qt Version</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt 信号 槽</a>
+                <a href="javascript:void(0)" class="js-tag color5">Qt 国际化 中文</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Qt .ini</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Qt Excel</a>
               </li>
             
             <div class="clearfix"></div>
