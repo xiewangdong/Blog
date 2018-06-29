@@ -148,6 +148,56 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-xml文档读取和生成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>QDomDocument、QDomElement、QDomText类用于操作xml文件；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">//定义1个QDomDocument实例，命名为“MyTDS”</span><br><span class="line">QDomDocument doc(&quot;MyTDS&quot;);</span><br><span class="line">//读取1个存在的model.xml文件</span><br><span class="line">QFile model(&quot;model.xml&quot;);</span><br><span class="line">//打开方式为只读</span><br><span class="line">if (!model.open(QIODevice::ReadOnly))</span><br><span class="line">&#123;</span><br><span class="line">    QMessageBox::warning(this,&quot;错误&quot;,&quot;未找到model.xml文件！&quot;);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">//将doc的内容设置为“model.xml”的内容</span><br><span class="line">if (!doc.setContent(&amp;model)) &#123;</span><br><span class="line">    model.close();</span><br><span class="line">    QMessageBox::warning(this,&quot;错误&quot;,&quot;读取model.xml文件失败！&quot;);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">model.close();</span><br><span class="line"> </span><br><span class="line">//获取doc根元素</span><br><span class="line">QDomElement docElem = doc.documentElement();</span><br><span class="line">//生成1个“Domain”元素，并添加至doc根节点</span><br><span class="line">QDomElement root = doc.createElement(&quot;Domain&quot;);</span><br><span class="line">docElem.appendChild(root);</span><br><span class="line">//生成1个“Attribute”元素，并添加至“Domain”节点</span><br><span class="line">QDomElement attribute = doc.createElement(&quot;Attribute&quot;);</span><br><span class="line">root.appendChild(attribute);</span><br><span class="line">//生成1个“BDNM”元素，设置其内容为“9999910”，并添加至“Attribute”节点</span><br><span class="line">QDomElement BDNM = doc.createElement(&quot;BDNM&quot;);</span><br><span class="line">attribute.appendChild(BDNM);</span><br><span class="line">QDomText t = doc.createTextNode(&quot;9999910&quot;);</span><br><span class="line">BDNM.appendChild(t);</span><br><span class="line">//定义1个QFile文件实例，命名为“MyTDS.xml”</span><br><span class="line">QFile file(&quot;MyTDS.xml&quot;);</span><br><span class="line">//设置文件打开方式为只写、清空早期数据、Text文本模式</span><br><span class="line">if (!file.open(QIODevice::WriteOnly|QIODevice::Truncate|QIODevice::Text))</span><br><span class="line">return;</span><br><span class="line">//定义1个QTextStream实例，用于向file写Text流</span><br><span class="line">QTextStream out(&amp;file);</span><br><span class="line">//设置文件编码方式为“gb2312”</span><br><span class="line">out.setCodec(&quot;gb2312&quot;);</span><br><span class="line">doc.save(out,4,QDomNode::EncodingFromTextStream);</span><br><span class="line">file.close();</span><br><span class="line">QMessageBox::warning(this,&quot;提示&quot;,&quot;MyTds文件已经生成！&quot;);</span><br><span class="line"> </span><br><span class="line">QDomNodeList QDomNode::childNodes() const//获取所有一级子节点列表</span><br><span class="line">``` </span><br><span class="line">## 读取一个XMl文件，代码如下：</span><br></pre></td></tr></table></figure></p>
+<p>QDomDocument doc(“mydocument”);<br> QFile file(“mydocument.xml”);<br> if (!file.open(QIODevice::ReadOnly))<br> return;<br> if (!doc.setContent(&amp;file)) {<br> file.close();<br> return;<br> }<br> file.close();<br>// print out the element names of all elements that are direct children<br> // of the outermost element.<br> QDomElement docElem = doc.documentElement();<br>QDomNode n = docElem.firstChild();<br> while(!n.isNull()) {<br> QDomElement e = n.toElement(); // try to convert the node to an element.<br> if(!e.isNull()) {<br> cout &lt;&lt; qPrintable(e.tagName()) &lt;&lt; endl; // the node really is an element.<br> }<br> n = n.nextSibling();<br> }<br>// Here we append a new element to the end of the document<br> QDomElement elem = doc.createElement(“img”);<br> elem.setAttribute(“src”, “myimage.png”);<br> docElem.appendChild(elem);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## 生成一个XML文件，代码如下：</span><br></pre></td></tr></table></figure></p>
+<p>QDomDocument doc(“MyML”);<br> QDomElement root = doc.createElement(“MyML”);<br> doc.appendChild(root);<br>QDomElement tag = doc.createElement(“Greeting”);<br> root.appendChild(tag);<br>QDomText t = doc.createTextNode(“Hello World”);<br> tag.appendChild(t);<br>QString xml = doc.toString();<br><code>`</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Blog/2018/06/29/xml文档读取和生成/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-VC创建DLL动态链接库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -611,61 +661,6 @@
 
 
   
-    <article id="post-QThread多线程操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>QThread类为用户管理线程提供一种平台无关的途径（接口），主要用于管理线程，并不实际实现用户功能。</li>
-<li>如需实现功能，可以新建一个继承自QObject的类，并在该类总完成功能实现代码，在主线程中创建该类的实例，并执行moveToThread函数，将该类的实例放于线程中去执行。</li>
-<li>由于在主线程创建了实例，该类会立即执行构造函数，如果构造函数中初始化了变量，则该变量属于主线程，这样将会在实例moveToThread后影响该变量的使用。正确的做法为，在该类中自定义初始化槽函数，与主线程中信号相关联，主线程发射信号，然后此线程中实现初始化。主线程与次线程通过信号-槽进行通信。</li>
-<li>此处还需注意的是，在主线程与次线程的connect函数中，需指定第三个参数为Qt::QueuedConnection，此参数含义为，将接受信号的槽函数在自身所在的线程中执行。</li>
-</ul>
-<h2 id="头文件包含："><a href="#头文件包含：" class="headerlink" title="头文件包含："></a>头文件包含：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QThread&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="基本用法为："><a href="#基本用法为：" class="headerlink" title="基本用法为："></a>基本用法为：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">//定义1个继承于QObject的类，用于实现功能</span><br><span class="line">class XunHuan : public QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">public:</span><br><span class="line">    explicit XunHuan(QObject *parent = 0);</span><br><span class="line">    bool ifLoop;</span><br><span class="line">signals:</span><br><span class="line">    void SendStr(QString str);</span><br><span class="line">    void FinishStop();</span><br><span class="line">public slots:</span><br><span class="line">    void SetString(QStringList str);</span><br><span class="line">    void StartLoop();</span><br><span class="line">private:</span><br><span class="line">    QStringList mystr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//在主程序中定义两个指针</span><br><span class="line">QThread* thread;</span><br><span class="line">XunHuan* myXunHuan;</span><br><span class="line">//在主程序构造函数中申请内存</span><br><span class="line">thread=new QThread(this);</span><br><span class="line">myXunHuan=new XunHuan();</span><br><span class="line">//将myXunHuan实例移动至线程中</span><br><span class="line">myXunHuan-&gt;moveToThread(thread);</span><br><span class="line">//将主程序与线程之间进行信号与槽的连接，此处注意第三个参数Qt::QueuedConnection</span><br><span class="line">connect(this,SIGNAL(SendStrList(QStringList)),myXunHuan,SLOT(SetString(QStringList)),Qt::QueuedConnection);</span><br><span class="line">connect(this,SIGNAL(StartLoop()),myXunHuan,SLOT(StartLoop()),Qt::QueuedConnection);</span><br><span class="line">connect(myXunHuan,SIGNAL(SendStr(QString)),this,SLOT(ReceiveStr(QString)),Qt::QueuedConnection);</span><br><span class="line">connect(myXunHuan,SIGNAL(FinishStop()),this,SLOT(haveFinishStop()),Qt::QueuedConnection);</span><br><span class="line">//启动线程</span><br><span class="line">thread-&gt;start();</span><br><span class="line"></span><br><span class="line">///程序结束时，一定要记得关闭线程</span><br><span class="line">delete myXunHuan;//释放myXunHuan内存</span><br><span class="line">thread-&gt;quit();//退出线程</span><br><span class="line">thread-&gt;wait(300);//等待300毫秒，注意，如不加此条，会报线程仍在运行警告</span><br><span class="line">thread-&gt;deleteLater();//释放线程内存</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/2018/06/29/QThread多线程操作/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/Blog/">&laquo; Prev</a><a class="page-number" href="/Blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/Blog/page/3/">3</a><a class="page-number" href="/Blog/page/4/">4</a><a class="extend next" rel="next" href="/Blog/page/3/">Next &raquo;</a>
@@ -761,6 +756,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt icmp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Qt 数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
