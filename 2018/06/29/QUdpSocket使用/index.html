@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xiewangdong.coding.me/Blog">
-  <title>Archives | 小熊开大的窝</title>
+  <title>小熊开大的窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="只要死不了，就能熬得过。">
+  <meta name="description" content="Pro文件中添加1QT += network 需包含的头文件12#include &amp;lt;QUdpSocket&amp;gt;#include &amp;lt;QByteArray&amp;gt; 代码：1234567891011121314151617181920212223242526272829303132/*******初始化UdpSocket******/QUdpSocket *udpServer=new QU">
 <meta name="keywords" content="Qt WPF">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="小熊开大的窝">
-<meta property="og:url" content="http://xiewangdong.coding.me/Blog/archives/index.html">
+<meta property="og:url" content="http://xiewangdong.coding.me/Blog/2018/06/29/QUdpSocket使用/index.html">
 <meta property="og:site_name" content="小熊开大的窝">
-<meta property="og:description" content="只要死不了，就能熬得过。">
+<meta property="og:description" content="Pro文件中添加1QT += network 需包含的头文件12#include &amp;lt;QUdpSocket&amp;gt;#include &amp;lt;QByteArray&amp;gt; 代码：1234567891011121314151617181920212223242526272829303132/*******初始化UdpSocket******/QUdpSocket *udpServer=new QU">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-23T16:31:12.388Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小熊开大的窝">
-<meta name="twitter:description" content="只要死不了，就能熬得过。">
+<meta name="twitter:description" content="Pro文件中添加1QT += network 需包含的头文件12#include &amp;lt;QUdpSocket&amp;gt;#include &amp;lt;QByteArray&amp;gt; 代码：1234567891011121314151617181920212223242526272829303132/*******初始化UdpSocket******/QUdpSocket *udpServer=new QU">
   
     <link rel="alternative" href="/atom.xml" title="小熊开大的窝" type="application/atom+xml">
   
@@ -146,235 +147,130 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-QUdpSocket使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Pro文件中添加"><a href="#Pro文件中添加" class="headerlink" title="Pro文件中添加"></a>Pro文件中添加</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QT += network</span><br></pre></td></tr></table></figure>
+<h2 id="需包含的头文件"><a href="#需包含的头文件" class="headerlink" title="需包含的头文件"></a>需包含的头文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QUdpSocket&gt;</span><br><span class="line">#include &lt;QByteArray&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">/*******初始化UdpSocket******/</span><br><span class="line">QUdpSocket *udpServer=new QUdpSocket(this);</span><br><span class="line">//将udpServer绑定在主机所有IPv4地址上，端口号为25510，用于接收报文</span><br><span class="line">if(udpServer-&gt;bind(QHostAddress::AnyIPv4,25510))</span><br><span class="line">&#123;</span><br><span class="line">    //当QUdpSocket收到报文后，会发射readyRead()信号，将此信号与程序的recNewConnection()槽连接</span><br><span class="line">    connect(udpServer,SIGNAL(readyRead()),this,SLOT(recNewConnection()));</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">    udpServer-&gt;close();</span><br><span class="line">    QMessageBox::warning(this,&quot;错误&quot;,udpServer-&gt;errorString());</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">//发送udp报文</span><br><span class="line">udpServer-&gt;writeDatagram(QByteArray::number(1),QHostAddress(&quot;127.0.0.1&quot;),25511);</span><br><span class="line"> </span><br><span class="line">程序的新报文处理槽：</span><br><span class="line">void Widget::recNewConnection()</span><br><span class="line">&#123;</span><br><span class="line">    //当udpServer有未读新报文时</span><br><span class="line">    while (udpServer-&gt;hasPendingDatagrams())</span><br><span class="line">    &#123;</span><br><span class="line">        QByteArray datagram;</span><br><span class="line">        datagram.resize(udpServer-&gt;pendingDatagramSize());</span><br><span class="line">        QHostAddress sender;</span><br><span class="line">        quint16 senderPort;</span><br><span class="line">        //读取报文</span><br><span class="line">        udpServer-&gt;readDatagram(datagram.data(), datagram.size(),</span><br><span class="line">                                &amp;sender, &amp;senderPort);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/Blog/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/托盘图标/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.631Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://xiewangdong.coding.me/Blog/2018/06/29/QUdpSocket使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/信号与槽的创建、发射、连接/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.630Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/语言翻译/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.629Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/Blog/2018/06/29/VC创建DLL动态链接库/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2018/06/29/QT向Windows窗口发送消息/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/添加使用资源文件/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.626Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/添加版本信息/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.625Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/数据库操作/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.624Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/利用icmp.dll发送Ping包/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.623Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/读取、写入config配置文件/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.621Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/串口操作/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.620Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/xml文档读取和生成/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.619Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/Blog/archives/page/2/">2</a><a class="page-number" href="/Blog/archives/page/3/">3</a><a class="page-number" href="/Blog/archives/page/4/">4</a><a class="extend next" rel="next" href="/Blog/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -398,8 +294,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

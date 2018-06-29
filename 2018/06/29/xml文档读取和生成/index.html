@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xiewangdong.coding.me/Blog">
-  <title>Archives | 小熊开大的窝</title>
+  <title>小熊开大的窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="只要死不了，就能熬得过。">
+  <meta name="description" content="QDomDocument、QDomElement、QDomText类用于操作xml文件；1234567891011121314151617181920212223242526272829303132333435363738394041424344454647//定义1个QDomDocument实例，命名为“MyTDS”QDomDocument doc(&amp;quot;MyTDS&amp;quot;);//读取">
 <meta name="keywords" content="Qt WPF">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="小熊开大的窝">
-<meta property="og:url" content="http://xiewangdong.coding.me/Blog/archives/index.html">
+<meta property="og:url" content="http://xiewangdong.coding.me/Blog/2018/06/29/xml文档读取和生成/index.html">
 <meta property="og:site_name" content="小熊开大的窝">
-<meta property="og:description" content="只要死不了，就能熬得过。">
+<meta property="og:description" content="QDomDocument、QDomElement、QDomText类用于操作xml文件；1234567891011121314151617181920212223242526272829303132333435363738394041424344454647//定义1个QDomDocument实例，命名为“MyTDS”QDomDocument doc(&amp;quot;MyTDS&amp;quot;);//读取">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-23T16:31:13.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小熊开大的窝">
-<meta name="twitter:description" content="只要死不了，就能熬得过。">
+<meta name="twitter:description" content="QDomDocument、QDomElement、QDomText类用于操作xml文件；1234567891011121314151617181920212223242526272829303132333435363738394041424344454647//定义1个QDomDocument实例，命名为“MyTDS”QDomDocument doc(&amp;quot;MyTDS&amp;quot;);//读取">
   
     <link rel="alternative" href="/atom.xml" title="小熊开大的窝" type="application/atom+xml">
   
@@ -146,235 +147,130 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-xml文档读取和生成" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>QDomDocument、QDomElement、QDomText类用于操作xml文件；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">//定义1个QDomDocument实例，命名为“MyTDS”</span><br><span class="line">QDomDocument doc(&quot;MyTDS&quot;);</span><br><span class="line">//读取1个存在的model.xml文件</span><br><span class="line">QFile model(&quot;model.xml&quot;);</span><br><span class="line">//打开方式为只读</span><br><span class="line">if (!model.open(QIODevice::ReadOnly))</span><br><span class="line">&#123;</span><br><span class="line">    QMessageBox::warning(this,&quot;错误&quot;,&quot;未找到model.xml文件！&quot;);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">//将doc的内容设置为“model.xml”的内容</span><br><span class="line">if (!doc.setContent(&amp;model)) &#123;</span><br><span class="line">    model.close();</span><br><span class="line">    QMessageBox::warning(this,&quot;错误&quot;,&quot;读取model.xml文件失败！&quot;);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">model.close();</span><br><span class="line"> </span><br><span class="line">//获取doc根元素</span><br><span class="line">QDomElement docElem = doc.documentElement();</span><br><span class="line">//生成1个“Domain”元素，并添加至doc根节点</span><br><span class="line">QDomElement root = doc.createElement(&quot;Domain&quot;);</span><br><span class="line">docElem.appendChild(root);</span><br><span class="line">//生成1个“Attribute”元素，并添加至“Domain”节点</span><br><span class="line">QDomElement attribute = doc.createElement(&quot;Attribute&quot;);</span><br><span class="line">root.appendChild(attribute);</span><br><span class="line">//生成1个“BDNM”元素，设置其内容为“9999910”，并添加至“Attribute”节点</span><br><span class="line">QDomElement BDNM = doc.createElement(&quot;BDNM&quot;);</span><br><span class="line">attribute.appendChild(BDNM);</span><br><span class="line">QDomText t = doc.createTextNode(&quot;9999910&quot;);</span><br><span class="line">BDNM.appendChild(t);</span><br><span class="line">//定义1个QFile文件实例，命名为“MyTDS.xml”</span><br><span class="line">QFile file(&quot;MyTDS.xml&quot;);</span><br><span class="line">//设置文件打开方式为只写、清空早期数据、Text文本模式</span><br><span class="line">if (!file.open(QIODevice::WriteOnly|QIODevice::Truncate|QIODevice::Text))</span><br><span class="line">return;</span><br><span class="line">//定义1个QTextStream实例，用于向file写Text流</span><br><span class="line">QTextStream out(&amp;file);</span><br><span class="line">//设置文件编码方式为“gb2312”</span><br><span class="line">out.setCodec(&quot;gb2312&quot;);</span><br><span class="line">doc.save(out,4,QDomNode::EncodingFromTextStream);</span><br><span class="line">file.close();</span><br><span class="line">QMessageBox::warning(this,&quot;提示&quot;,&quot;MyTds文件已经生成！&quot;);</span><br><span class="line"> </span><br><span class="line">QDomNodeList QDomNode::childNodes() const//获取所有一级子节点列表</span><br><span class="line">``` </span><br><span class="line">## 读取一个XMl文件，代码如下：</span><br></pre></td></tr></table></figure></p>
+<p>QDomDocument doc(“mydocument”);<br> QFile file(“mydocument.xml”);<br> if (!file.open(QIODevice::ReadOnly))<br> return;<br> if (!doc.setContent(&amp;file)) {<br> file.close();<br> return;<br> }<br> file.close();<br>// print out the element names of all elements that are direct children<br> // of the outermost element.<br> QDomElement docElem = doc.documentElement();<br>QDomNode n = docElem.firstChild();<br> while(!n.isNull()) {<br> QDomElement e = n.toElement(); // try to convert the node to an element.<br> if(!e.isNull()) {<br> cout &lt;&lt; qPrintable(e.tagName()) &lt;&lt; endl; // the node really is an element.<br> }<br> n = n.nextSibling();<br> }<br>// Here we append a new element to the end of the document<br> QDomElement elem = doc.createElement(“img”);<br> elem.setAttribute(“src”, “myimage.png”);<br> docElem.appendChild(elem);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## 生成一个XML文件，代码如下：</span><br></pre></td></tr></table></figure></p>
+<p>QDomDocument doc(“MyML”);<br> QDomElement root = doc.createElement(“MyML”);<br> doc.appendChild(root);<br>QDomElement tag = doc.createElement(“Greeting”);<br> root.appendChild(tag);<br>QDomText t = doc.createTextNode(“Hello World”);<br> tag.appendChild(t);<br>QString xml = doc.toString();<br><code>`</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/Blog/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/托盘图标/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.631Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://xiewangdong.coding.me/Blog/2018/06/29/xml文档读取和生成/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/信号与槽的创建、发射、连接/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.630Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/语言翻译/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.629Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/Blog/2018/06/29/串口操作/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2018/06/29/VC创建DLL动态链接库/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/添加使用资源文件/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.626Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/添加版本信息/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.625Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/数据库操作/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.624Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/利用icmp.dll发送Ping包/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.623Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/读取、写入config配置文件/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.621Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/串口操作/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.620Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/xml文档读取和生成/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.619Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/Blog/archives/page/2/">2</a><a class="page-number" href="/Blog/archives/page/3/">3</a><a class="page-number" href="/Blog/archives/page/4/">4</a><a class="extend next" rel="next" href="/Blog/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -398,8 +294,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

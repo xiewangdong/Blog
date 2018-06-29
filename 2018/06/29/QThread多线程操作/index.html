@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xiewangdong.coding.me/Blog">
-  <title>Archives | 小熊开大的窝</title>
+  <title>小熊开大的窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="只要死不了，就能熬得过。">
+  <meta name="description" content="QThread类为用户管理线程提供一种平台无关的途径（接口），主要用于管理线程，并不实际实现用户功能。 如需实现功能，可以新建一个继承自QObject的类，并在该类总完成功能实现代码，在主线程中创建该类的实例，并执行moveToThread函数，将该类的实例放于线程中去执行。 由于在主线程创建了实例，该类会立即执行构造函数，如果构造函数中初始化了变量，则该变量属于主线程，这样将会在实例moveT">
 <meta name="keywords" content="Qt WPF">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="小熊开大的窝">
-<meta property="og:url" content="http://xiewangdong.coding.me/Blog/archives/index.html">
+<meta property="og:url" content="http://xiewangdong.coding.me/Blog/2018/06/29/QThread多线程操作/index.html">
 <meta property="og:site_name" content="小熊开大的窝">
-<meta property="og:description" content="只要死不了，就能熬得过。">
+<meta property="og:description" content="QThread类为用户管理线程提供一种平台无关的途径（接口），主要用于管理线程，并不实际实现用户功能。 如需实现功能，可以新建一个继承自QObject的类，并在该类总完成功能实现代码，在主线程中创建该类的实例，并执行moveToThread函数，将该类的实例放于线程中去执行。 由于在主线程创建了实例，该类会立即执行构造函数，如果构造函数中初始化了变量，则该变量属于主线程，这样将会在实例moveT">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-23T16:31:13.077Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小熊开大的窝">
-<meta name="twitter:description" content="只要死不了，就能熬得过。">
+<meta name="twitter:description" content="QThread类为用户管理线程提供一种平台无关的途径（接口），主要用于管理线程，并不实际实现用户功能。 如需实现功能，可以新建一个继承自QObject的类，并在该类总完成功能实现代码，在主线程中创建该类的实例，并执行moveToThread函数，将该类的实例放于线程中去执行。 由于在主线程创建了实例，该类会立即执行构造函数，如果构造函数中初始化了变量，则该变量属于主线程，这样将会在实例moveT">
   
     <link rel="alternative" href="/atom.xml" title="小熊开大的窝" type="application/atom+xml">
   
@@ -146,235 +147,135 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-QThread多线程操作" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>QThread类为用户管理线程提供一种平台无关的途径（接口），主要用于管理线程，并不实际实现用户功能。</li>
+<li>如需实现功能，可以新建一个继承自QObject的类，并在该类总完成功能实现代码，在主线程中创建该类的实例，并执行moveToThread函数，将该类的实例放于线程中去执行。</li>
+<li>由于在主线程创建了实例，该类会立即执行构造函数，如果构造函数中初始化了变量，则该变量属于主线程，这样将会在实例moveToThread后影响该变量的使用。正确的做法为，在该类中自定义初始化槽函数，与主线程中信号相关联，主线程发射信号，然后此线程中实现初始化。主线程与次线程通过信号-槽进行通信。</li>
+<li>此处还需注意的是，在主线程与次线程的connect函数中，需指定第三个参数为Qt::QueuedConnection，此参数含义为，将接受信号的槽函数在自身所在的线程中执行。</li>
+</ul>
+<h2 id="头文件包含："><a href="#头文件包含：" class="headerlink" title="头文件包含："></a>头文件包含：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QThread&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="基本用法为："><a href="#基本用法为：" class="headerlink" title="基本用法为："></a>基本用法为：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">//定义1个继承于QObject的类，用于实现功能</span><br><span class="line">class XunHuan : public QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">public:</span><br><span class="line">    explicit XunHuan(QObject *parent = 0);</span><br><span class="line">    bool ifLoop;</span><br><span class="line">signals:</span><br><span class="line">    void SendStr(QString str);</span><br><span class="line">    void FinishStop();</span><br><span class="line">public slots:</span><br><span class="line">    void SetString(QStringList str);</span><br><span class="line">    void StartLoop();</span><br><span class="line">private:</span><br><span class="line">    QStringList mystr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//在主程序中定义两个指针</span><br><span class="line">QThread* thread;</span><br><span class="line">XunHuan* myXunHuan;</span><br><span class="line">//在主程序构造函数中申请内存</span><br><span class="line">thread=new QThread(this);</span><br><span class="line">myXunHuan=new XunHuan();</span><br><span class="line">//将myXunHuan实例移动至线程中</span><br><span class="line">myXunHuan-&gt;moveToThread(thread);</span><br><span class="line">//将主程序与线程之间进行信号与槽的连接，此处注意第三个参数Qt::QueuedConnection</span><br><span class="line">connect(this,SIGNAL(SendStrList(QStringList)),myXunHuan,SLOT(SetString(QStringList)),Qt::QueuedConnection);</span><br><span class="line">connect(this,SIGNAL(StartLoop()),myXunHuan,SLOT(StartLoop()),Qt::QueuedConnection);</span><br><span class="line">connect(myXunHuan,SIGNAL(SendStr(QString)),this,SLOT(ReceiveStr(QString)),Qt::QueuedConnection);</span><br><span class="line">connect(myXunHuan,SIGNAL(FinishStop()),this,SLOT(haveFinishStop()),Qt::QueuedConnection);</span><br><span class="line">//启动线程</span><br><span class="line">thread-&gt;start();</span><br><span class="line"></span><br><span class="line">///程序结束时，一定要记得关闭线程</span><br><span class="line">delete myXunHuan;//释放myXunHuan内存</span><br><span class="line">thread-&gt;quit();//退出线程</span><br><span class="line">thread-&gt;wait(300);//等待300毫秒，注意，如不加此条，会报线程仍在运行警告</span><br><span class="line">thread-&gt;deleteLater();//释放线程内存</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/Blog/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/托盘图标/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.631Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://xiewangdong.coding.me/Blog/2018/06/29/QThread多线程操作/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/信号与槽的创建、发射、连接/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.630Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/语言翻译/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.629Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/Blog/2018/06/29/QTreeWidget用法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2018/06/29/QTextEdit右键菜单/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/添加使用资源文件/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.626Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/添加版本信息/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.625Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/数据库操作/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.624Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/利用icmp.dll发送Ping包/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.623Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/读取、写入config配置文件/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.621Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/串口操作/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.620Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2018/06/29/xml文档读取和生成/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:19:04.619Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/Blog/archives/page/2/">2</a><a class="page-number" href="/Blog/archives/page/3/">3</a><a class="page-number" href="/Blog/archives/page/4/">4</a><a class="extend next" rel="next" href="/Blog/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -398,8 +299,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
