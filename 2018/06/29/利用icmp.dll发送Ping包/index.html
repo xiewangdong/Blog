@@ -8,23 +8,23 @@
   <link rel="dns-prefetch" href="http://xiewangdong.coding.me/Blog">
   <title>利用icmp.dll发送Ping包 | 熊窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在Windows平台编程实现Ping的最简单方法是调用icmp.dll动态链接库，引用icmp.dll的三个函数即可： 12345678910111213141516//打开ICMP Echo请求能使用的句柄HANDLEIcmpCreateFile(viod);﻿//关闭由IcmpCreateFile打开的句柄bool IcmpCloseHandle(HANDLE IcmpHandle);//发送">
-<meta name="keywords" content="Qt icmp">
+  <meta name="description" content="在Windows平台编程实现Ping的最简单方法是调用icmp.dll动态链接库，引用icmp.dll的三个函数即可：">
+<meta name="keywords" content="Qt,icmp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用icmp.dll发送Ping包">
 <meta property="og:url" content="http://xiewangdong.coding.me/Blog/2018/06/29/利用icmp.dll发送Ping包/index.html">
 <meta property="og:site_name" content="熊窝">
-<meta property="og:description" content="在Windows平台编程实现Ping的最简单方法是调用icmp.dll动态链接库，引用icmp.dll的三个函数即可： 12345678910111213141516//打开ICMP Echo请求能使用的句柄HANDLEIcmpCreateFile(viod);﻿//关闭由IcmpCreateFile打开的句柄bool IcmpCloseHandle(HANDLE IcmpHandle);//发送">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-29T08:31:20.185Z">
+<meta property="og:description" content="在Windows平台编程实现Ping的最简单方法是调用icmp.dll动态链接库，引用icmp.dll的三个函数即可：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-29T12:02:21.839Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用icmp.dll发送Ping包">
-<meta name="twitter:description" content="在Windows平台编程实现Ping的最简单方法是调用icmp.dll动态链接库，引用icmp.dll的三个函数即可： 12345678910111213141516//打开ICMP Echo请求能使用的句柄HANDLEIcmpCreateFile(viod);﻿//关闭由IcmpCreateFile打开的句柄bool IcmpCloseHandle(HANDLE IcmpHandle);//发送">
+<meta name="twitter:description" content="在Windows平台编程实现Ping的最简单方法是调用icmp.dll动态链接库，引用icmp.dll的三个函数即可：">
   
     <link rel="alternative" href="/atom.xml" title="熊窝" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/Blog/assets/images/xw.png">
   
   <link rel="stylesheet" type="text/css" href="/Blog/./main.0cf68a.css">
   <style type="text/css">
@@ -48,7 +48,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/Blog/" class="profilepic">
-			<img src="/assets/images/touxiang.jpg" class="js-avatar">
+			<img src="/Blog/assets/images/touxiang.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/Blog/">小熊开大</a></h1>
@@ -102,7 +102,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/assets/images/touxiang.jpg" class="js-avatar">
+				<img src="/Blog/assets/images/touxiang.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">小熊开大</h1>
@@ -165,8 +165,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在Windows平台编程实现Ping的最简单方法是调用icmp.dll动态链接库，引用icmp.dll的三个函数即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//打开ICMP Echo请求能使用的句柄</span><br><span class="line">HANDLEIcmpCreateFile(viod);﻿</span><br><span class="line"></span><br><span class="line">//关闭由IcmpCreateFile打开的句柄</span><br><span class="line">bool IcmpCloseHandle(HANDLE IcmpHandle);</span><br><span class="line"></span><br><span class="line">//发送Echo请求并等待回复或超时</span><br><span class="line">DWORD IcmpSendEcho(</span><br><span class="line">    HANDLE IcmpHandle,//IcmpCreateFile打开的句柄</span><br><span class="line">    IPAddr DestinationAddress,//Echo请求的目的地址</span><br><span class="line">    LPVOID RequestData,//发送数据buffer</span><br><span class="line">    WORD RequestSize,//发送数据长度</span><br><span class="line">    PIP_OPTION_INFORMATION RequestOptions,//IP_OPTION_INFORMATION指针</span><br><span class="line">    LPVOID ReplyBuffer,//接收回复buffer</span><br><span class="line">    DWORD ReplySize,//接收回复buffer大小</span><br><span class="line">    DWORD Timeout//等待超时)</span><br></pre></td></tr></table></figure>
+        <p>在Windows平台编程实现Ping的最简单方法是调用icmp.dll动态链接库，引用icmp.dll的三个函数即可：<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//打开ICMP Echo请求能使用的句柄</span><br><span class="line">HANDLEIcmpCreateFile(viod);﻿</span><br><span class="line"></span><br><span class="line">//关闭由IcmpCreateFile打开的句柄</span><br><span class="line">bool IcmpCloseHandle(HANDLE IcmpHandle);</span><br><span class="line"></span><br><span class="line">//发送Echo请求并等待回复或超时</span><br><span class="line">DWORD IcmpSendEcho(</span><br><span class="line">    HANDLE IcmpHandle,//IcmpCreateFile打开的句柄</span><br><span class="line">    IPAddr DestinationAddress,//Echo请求的目的地址</span><br><span class="line">    LPVOID RequestData,//发送数据buffer</span><br><span class="line">    WORD RequestSize,//发送数据长度</span><br><span class="line">    PIP_OPTION_INFORMATION RequestOptions,//IP_OPTION_INFORMATION指针</span><br><span class="line">    LPVOID ReplyBuffer,//接收回复buffer</span><br><span class="line">    DWORD ReplySize,//接收回复buffer大小</span><br><span class="line">    DWORD Timeout//等待超时)</span><br></pre></td></tr></table></figure></p>
+<p>​    </p>
 <h2 id="Pro中包含："><a href="#Pro中包含：" class="headerlink" title="Pro中包含："></a>Pro中包含：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LIBS+=-lws2_32</span><br></pre></td></tr></table></figure>
 <h2 id="头文件："><a href="#头文件：" class="headerlink" title="头文件："></a>头文件：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QObject&gt;</span><br><span class="line">#include &lt;QString&gt;</span><br><span class="line">#include &lt;QByteArray&gt;</span><br><span class="line">#include &lt;qt_windows.h&gt;</span><br><span class="line">#include &lt;qt_windows.h&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="定义数据包结构体："><a href="#定义数据包结构体：" class="headerlink" title="定义数据包结构体："></a>定义数据包结构体：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">typedef struct tagIPINFO</span><br><span class="line">&#123;</span><br><span class="line">    u_char Ttl;</span><br><span class="line">    u_char Tos;</span><br><span class="line">    u_char IPFlags;</span><br><span class="line">    u_char OptSize;</span><br><span class="line">    u_char *Options;</span><br><span class="line">&#125;IPINFO,*PIPINFO;</span><br><span class="line"></span><br><span class="line">typedef struct tagICMPECHO</span><br><span class="line">&#123;</span><br><span class="line">    u_long Source;</span><br><span class="line">    ///IP_SUCESS 0 成功</span><br><span class="line">    /// IP_BUF_TOO_SMALL 11001 答复缓冲区太小</span><br><span class="line">    /// IP_DEST_NET_UNREACHABLE 11002 目标网络不可达</span><br><span class="line">    /// IP_DEST_HOST_UNREACHABLE 11003 目标主机不可达</span><br><span class="line">    /// IP_DEST_PROT_UNREACHABLE 11004 目标协议遥不可及</span><br><span class="line">    /// IP_DEST_PORT_UNREACHABLE 11005 目标端口不可达</span><br><span class="line">    u_long Status;</span><br><span class="line">    u_long RTTime;</span><br><span class="line">    u_short DataSize;</span><br><span class="line">    u_short Reserved;</span><br><span class="line">    void* pData;</span><br><span class="line">    IPINFO ipInfo;</span><br><span class="line">&#125;ICMPECHO,*PICMPECHO;</span><br></pre></td></tr></table></figure>
@@ -185,7 +185,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Qt icmp</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Qt</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">icmp</a>
         		</li>
       		
 		</ul>
@@ -255,11 +259,11 @@
   
 <nav id="article-nav">
   
-    <a href="/Blog/2018/06/29/信号与槽的创建、发射、连接/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Blog/2018/06/29/Xceed Words利用模板导出Word/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Qt信号、槽使用
+          Xceed Word导出docx
         
       </div>
     </a>
@@ -392,111 +396,163 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt QProcess</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt QSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">QProcess</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt QString char</a>
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt QTableWidget</a>
+                <a href="javascript:void(0)" class="js-tag color4">QSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt 右键菜单</a>
+                <a href="javascript:void(0)" class="js-tag color3">QString</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Qt QThread 多线程</a>
+                <a href="javascript:void(0)" class="js-tag color5">char</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Qt QTreeWidget</a>
+                <a href="javascript:void(0)" class="js-tag color3">QTableWidget</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt Lib Dll</a>
+                <a href="javascript:void(0)" class="js-tag color5">右键菜单</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt Windows消息</a>
+                <a href="javascript:void(0)" class="js-tag color3">QThread</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt Icon 图标</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt ActiveX</a>
+                <a href="javascript:void(0)" class="js-tag color2">QTreeWidget</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt QLibrary Dll</a>
+                <a href="javascript:void(0)" class="js-tag color4">Lib</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt Oracle 数据库 OCI</a>
+                <a href="javascript:void(0)" class="js-tag color4">Dll</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt 预编译</a>
+                <a href="javascript:void(0)" class="js-tag color5">Windows消息</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt QUdpSocket 网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">Icon 图标</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">VC Dll</a>
+                <a href="javascript:void(0)" class="js-tag color3">ActiveX</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt XML</a>
+                <a href="javascript:void(0)" class="js-tag color4">QLibrary</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WPF Word Docx</a>
+                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt 串口 serial</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt 信号 槽</a>
+                <a href="javascript:void(0)" class="js-tag color4">OCI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt icmp</a>
+                <a href="javascript:void(0)" class="js-tag color4">预编译</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt 托盘</a>
+                <a href="javascript:void(0)" class="js-tag color1">QUdpSocket</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt 数据库</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">VC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Qt 国际化 中文</a>
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt .ini</a>
+                <a href="javascript:void(0)" class="js-tag color3">串口</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Qt Excel</a>
+                <a href="javascript:void(0)" class="js-tag color2">serial</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">信号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">槽</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WPF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Docx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">icmp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">托盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ico</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">国际化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">中文</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ini</a>
               </li>
             
             <div class="clearfix"></div>
@@ -559,7 +615,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很开心&lt;br&gt;&lt;br&gt;有了自己的Blog&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">一路走来&lt;br&gt;跌跌撞撞&lt;br&gt;&lt;br&gt;但管努力&lt;br&gt;莫问前程</div>
   	  	
     	</section>
     

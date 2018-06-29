@@ -8,23 +8,20 @@
   <link rel="dns-prefetch" href="http://xiewangdong.coding.me/Blog">
   <title>QTableWidget用法 | 熊窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="需包含的头文件12#include &amp;lt;QTableWidget&amp;gt;#include &amp;lt;QHeaderView&amp;gt; 代码：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152/*******初始化客户端列表QTableWidget实例为clie">
-<meta name="keywords" content="Qt QTableWidget">
+  <meta name="keywords" content="Qt,QTableWidget">
 <meta property="og:type" content="article">
 <meta property="og:title" content="QTableWidget用法">
 <meta property="og:url" content="http://xiewangdong.coding.me/Blog/2018/06/29/QTableWidget用法/index.html">
 <meta property="og:site_name" content="熊窝">
-<meta property="og:description" content="需包含的头文件12#include &amp;lt;QTableWidget&amp;gt;#include &amp;lt;QHeaderView&amp;gt; 代码：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152/*******初始化客户端列表QTableWidget实例为clie">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-29T09:01:40.736Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-29T11:52:54.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QTableWidget用法">
-<meta name="twitter:description" content="需包含的头文件12#include &amp;lt;QTableWidget&amp;gt;#include &amp;lt;QHeaderView&amp;gt; 代码：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152/*******初始化客户端列表QTableWidget实例为clie">
   
     <link rel="alternative" href="/atom.xml" title="熊窝" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/Blog/assets/images/xw.png">
   
   <link rel="stylesheet" type="text/css" href="/Blog/./main.0cf68a.css">
   <style type="text/css">
@@ -48,7 +45,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/Blog/" class="profilepic">
-			<img src="/assets/images/touxiang.jpg" class="js-avatar">
+			<img src="/Blog/assets/images/touxiang.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/Blog/">小熊开大</a></h1>
@@ -102,7 +99,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/assets/images/touxiang.jpg" class="js-avatar">
+				<img src="/Blog/assets/images/touxiang.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">小熊开大</h1>
@@ -165,7 +162,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="需包含的头文件"><a href="#需包含的头文件" class="headerlink" title="需包含的头文件"></a>需包含的头文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QTableWidget&gt;</span><br><span class="line">#include &lt;QHeaderView&gt;</span><br></pre></td></tr></table></figure>
+        <hr>
+<a id="more"></a>
+<h2 id="需包含的头文件"><a href="#需包含的头文件" class="headerlink" title="需包含的头文件"></a>需包含的头文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QTableWidget&gt;</span><br><span class="line">#include &lt;QHeaderView&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">/*******初始化客户端列表QTableWidget实例为clientListTab ******/</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setRowCount(0);</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setColumnCount(3);</span><br><span class="line">//设置水平表头</span><br><span class="line">QStringList header;</span><br><span class="line">header&lt;&lt;&quot;客户端IP&quot;&lt;&lt;&quot;端口&quot;&lt;&lt;&quot;发送情况&quot;;</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setHorizontalHeaderLabels(header);</span><br><span class="line">//隐藏垂直表头</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;verticalHeader()-&gt;setVisible(false);</span><br><span class="line">//设置整行选择和多行选择</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setSelectionMode(QAbstractItemView::MultiSelection);</span><br><span class="line">//设置列表内容只读</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);</span><br><span class="line">//设置默认行高</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;verticalHeader()-&gt;setDefaultSectionSize(20);</span><br><span class="line">//设置默认焦点</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setFocusPolicy(Qt::NoFocus);</span><br><span class="line">//在末尾插入1行</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;insertRow(this-&gt;ui-&gt;clientListTab-&gt;rowCount());</span><br><span class="line">//填写表格内容，row是从0开始计数</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setItem(1,0,new QTableWidgetItem(&quot;192.168.1.1&quot;));</span><br><span class="line">this-&gt;ui-&gt;clientListTab-&gt;setItem(1,1,new QTableWidgetItem(&quot;25510&quot;));</span><br><span class="line">//设置隐藏列</span><br><span class="line">ui-&gt;clientListTab-&gt;setColumnHidden(2,true);</span><br><span class="line">//设置表头宽度随窗口大小拉伸</span><br><span class="line">ui-&gt;clientListTab-&gt;horizontalHeader()-&gt;setSectionResizeMode(QHeaderView::Stretch);</span><br><span class="line">//设置第1列宽度为自适应（用户不可更改）并设置其宽度为35</span><br><span class="line">ui-&gt;clientListTab-&gt;horizontalHeader()-&gt;setSectionResizeMode(0,QHeaderView::Fixed);</span><br><span class="line">ui-&gt;clientListTab-&gt;horizontalHeader()-&gt;resizeSection(0,40);</span><br><span class="line">//设置表头文字居中</span><br><span class="line">ui-&gt;clientListTab-&gt;horizontalHeader()-&gt;setDefaultAlignment(Qt::AlignCenter);</span><br><span class="line">    </span><br><span class="line">//获取选中的单元格列表</span><br><span class="line">QList&lt;QTableWidgetItem *&gt; selectItem=this-&gt;ui-&gt;clientListTab-&gt;selectedItems();</span><br><span class="line">//利用for循环遍历被选中的单元格</span><br><span class="line">for(int i=selectItem.count();i&gt;0;i--)</span><br><span class="line">&#123;</span><br><span class="line">    //发射removeRow(int row)信号，删除该行</span><br><span class="line">    this-&gt;ui-&gt;clientListTab-&gt;removeRow(selectItem[i-1]-&gt;row());</span><br><span class="line">&#125;</span><br><span class="line">///注意：QTableWidget中单元格与1个QTableWidgetItem指针区域绑定，</span><br><span class="line">/// 在更改单元格内容时，先判断该单元格是否已绑定，如已绑定，则获取</span><br><span class="line">/// 该QTableWidgetItem指针再进行更改</span><br><span class="line">if(ui-&gt;clientListTab-&gt;item(row,2)!=0)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;clientListTab-&gt;item(row,2)-&gt;setText(&quot;&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;clientListTab-&gt;setItem(row,2,new QTableWidgetItem(&quot;&quot;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -180,7 +179,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Qt QTableWidget</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Qt</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">QTableWidget</a>
         		</li>
       		
 		</ul>
@@ -261,7 +264,7 @@
   
   
     <a href="/Blog/2018/06/29/QTextEdit右键菜单/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">右键菜单</div>
+      <div class="article-nav-title">QTextEdit右键菜单</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -387,111 +390,163 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt QProcess</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt QSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">QProcess</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt QString char</a>
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt QTableWidget</a>
+                <a href="javascript:void(0)" class="js-tag color4">QSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt 右键菜单</a>
+                <a href="javascript:void(0)" class="js-tag color3">QString</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Qt QThread 多线程</a>
+                <a href="javascript:void(0)" class="js-tag color5">char</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Qt QTreeWidget</a>
+                <a href="javascript:void(0)" class="js-tag color3">QTableWidget</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt Lib Dll</a>
+                <a href="javascript:void(0)" class="js-tag color5">右键菜单</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt Windows消息</a>
+                <a href="javascript:void(0)" class="js-tag color3">QThread</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt Icon 图标</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt ActiveX</a>
+                <a href="javascript:void(0)" class="js-tag color2">QTreeWidget</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt QLibrary Dll</a>
+                <a href="javascript:void(0)" class="js-tag color4">Lib</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt Oracle 数据库 OCI</a>
+                <a href="javascript:void(0)" class="js-tag color4">Dll</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt 预编译</a>
+                <a href="javascript:void(0)" class="js-tag color5">Windows消息</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt QUdpSocket 网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">Icon 图标</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">VC Dll</a>
+                <a href="javascript:void(0)" class="js-tag color3">ActiveX</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt XML</a>
+                <a href="javascript:void(0)" class="js-tag color4">QLibrary</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WPF Word Docx</a>
+                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt 串口 serial</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt 信号 槽</a>
+                <a href="javascript:void(0)" class="js-tag color4">OCI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt icmp</a>
+                <a href="javascript:void(0)" class="js-tag color4">预编译</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt 托盘</a>
+                <a href="javascript:void(0)" class="js-tag color1">QUdpSocket</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt 数据库</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">VC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Qt 国际化 中文</a>
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt .ini</a>
+                <a href="javascript:void(0)" class="js-tag color3">串口</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Qt Excel</a>
+                <a href="javascript:void(0)" class="js-tag color2">serial</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">信号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">槽</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WPF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Docx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">icmp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">托盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ico</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">国际化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">中文</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ini</a>
               </li>
             
             <div class="clearfix"></div>
@@ -554,7 +609,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很开心&lt;br&gt;&lt;br&gt;有了自己的Blog&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">一路走来&lt;br&gt;跌跌撞撞&lt;br&gt;&lt;br&gt;但管努力&lt;br&gt;莫问前程</div>
   	  	
     	</section>
     

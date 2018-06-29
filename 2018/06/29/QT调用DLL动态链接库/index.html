@@ -8,23 +8,23 @@
   <link rel="dns-prefetch" href="http://xiewangdong.coding.me/Blog">
   <title>QLibrary动态加载Dll链接库 | 熊窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="QT中使用QLibrary类加载、使用、卸载DLL动态链接库。 头文件包含1#include &amp;lt;QLibrary&amp;gt; QLibrary中主要使用的函数为load()，resolve()，unload()函数。一般首先需使用typedef定义函数指针，代码： 123456typedef void (*lpSpeak)(WCHAR*);typedef BOOL (*lpInitCo)();t">
-<meta name="keywords" content="Qt QLibrary Dll">
+  <meta name="description" content="QT中使用QLibrary类加载、使用、卸载DLL动态链接库。 头文件包含1#include &amp;lt;QLibrary&amp;gt;">
+<meta name="keywords" content="Qt,Dll,QLibrary">
 <meta property="og:type" content="article">
 <meta property="og:title" content="QLibrary动态加载Dll链接库">
 <meta property="og:url" content="http://xiewangdong.coding.me/Blog/2018/06/29/QT调用DLL动态链接库/index.html">
 <meta property="og:site_name" content="熊窝">
-<meta property="og:description" content="QT中使用QLibrary类加载、使用、卸载DLL动态链接库。 头文件包含1#include &amp;lt;QLibrary&amp;gt; QLibrary中主要使用的函数为load()，resolve()，unload()函数。一般首先需使用typedef定义函数指针，代码： 123456typedef void (*lpSpeak)(WCHAR*);typedef BOOL (*lpInitCo)();t">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-29T09:08:46.658Z">
+<meta property="og:description" content="QT中使用QLibrary类加载、使用、卸载DLL动态链接库。 头文件包含1#include &amp;lt;QLibrary&amp;gt;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-29T11:55:21.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QLibrary动态加载Dll链接库">
-<meta name="twitter:description" content="QT中使用QLibrary类加载、使用、卸载DLL动态链接库。 头文件包含1#include &amp;lt;QLibrary&amp;gt; QLibrary中主要使用的函数为load()，resolve()，unload()函数。一般首先需使用typedef定义函数指针，代码： 123456typedef void (*lpSpeak)(WCHAR*);typedef BOOL (*lpInitCo)();t">
+<meta name="twitter:description" content="QT中使用QLibrary类加载、使用、卸载DLL动态链接库。 头文件包含1#include &amp;lt;QLibrary&amp;gt;">
   
     <link rel="alternative" href="/atom.xml" title="熊窝" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/Blog/assets/images/xw.png">
   
   <link rel="stylesheet" type="text/css" href="/Blog/./main.0cf68a.css">
   <style type="text/css">
@@ -48,7 +48,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/Blog/" class="profilepic">
-			<img src="/assets/images/touxiang.jpg" class="js-avatar">
+			<img src="/Blog/assets/images/touxiang.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/Blog/">小熊开大</a></h1>
@@ -102,7 +102,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/assets/images/touxiang.jpg" class="js-avatar">
+				<img src="/Blog/assets/images/touxiang.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">小熊开大</h1>
@@ -167,6 +167,7 @@
       
         <p>QT中使用QLibrary类加载、使用、卸载DLL动态链接库。</p>
 <h2 id="头文件包含"><a href="#头文件包含" class="headerlink" title="头文件包含"></a>头文件包含</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QLibrary&gt;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>QLibrary中主要使用的函数为load()，resolve()，unload()函数。<br>一般首先需使用typedef定义函数指针，代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef void (*lpSpeak)(WCHAR*);</span><br><span class="line">typedef BOOL (*lpInitCo)();</span><br><span class="line">typedef void (*lpUnInitCo)();</span><br><span class="line">typedef void (*lpSetVol)(int);</span><br><span class="line">typedef void (*lpSetTimeout)(int);</span><br><span class="line">typedef void (*lpSetSpeakFlg)(BOOL);</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">QLibrary fDll(&quot;xsapi.dll&quot;);</span><br><span class="line">    if(fDll.load())</span><br><span class="line">    &#123;</span><br><span class="line">        lpSpeak pSpeak=(lpSpeak)fDll.resolve(&quot;Speak&quot;);</span><br><span class="line">        lpInitCo pInitCo=(lpInitCo)fDll.resolve(&quot;InitCo&quot;);</span><br><span class="line">        lpUnInitCo pUnInitCo=(lpUnInitCo)fDll.resolve(&quot;UnInitCo&quot;);</span><br><span class="line">        lpSetVol pSetVol=(lpSetVol)fDll.resolve(&quot;SetVol&quot;);</span><br><span class="line">        lpSetTimeout pSetTimeout=(lpSetTimeout)fDll.resolve(&quot;SetTimeout&quot;);</span><br><span class="line">        lpSetSpeakFlg pSetSpeakFlg=(lpSetSpeakFlg)fDll.resolve(&quot;SetSpeakFlg&quot;);</span><br><span class="line"></span><br><span class="line">        if(pInitCo())</span><br><span class="line">        &#123;</span><br><span class="line">            pSetVol(50);</span><br><span class="line">            pSetSpeakFlg(FALSE);</span><br><span class="line">            WCHAR* string=L&quot;让我们荡起霜降&quot;;</span><br><span class="line">            pSpeak(string);</span><br><span class="line">            pUnInitCo();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -183,7 +184,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Qt QLibrary Dll</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Qt</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Dll</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">QLibrary</a>
         		</li>
       		
 		</ul>
@@ -390,111 +399,163 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt QProcess</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt QSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">QProcess</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt QString char</a>
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt QTableWidget</a>
+                <a href="javascript:void(0)" class="js-tag color4">QSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt 右键菜单</a>
+                <a href="javascript:void(0)" class="js-tag color3">QString</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Qt QThread 多线程</a>
+                <a href="javascript:void(0)" class="js-tag color5">char</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Qt QTreeWidget</a>
+                <a href="javascript:void(0)" class="js-tag color3">QTableWidget</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt Lib Dll</a>
+                <a href="javascript:void(0)" class="js-tag color5">右键菜单</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt Windows消息</a>
+                <a href="javascript:void(0)" class="js-tag color3">QThread</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt Icon 图标</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt ActiveX</a>
+                <a href="javascript:void(0)" class="js-tag color2">QTreeWidget</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt QLibrary Dll</a>
+                <a href="javascript:void(0)" class="js-tag color4">Lib</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt Oracle 数据库 OCI</a>
+                <a href="javascript:void(0)" class="js-tag color4">Dll</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt 预编译</a>
+                <a href="javascript:void(0)" class="js-tag color5">Windows消息</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt QUdpSocket 网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">Icon 图标</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">VC Dll</a>
+                <a href="javascript:void(0)" class="js-tag color3">ActiveX</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt XML</a>
+                <a href="javascript:void(0)" class="js-tag color4">QLibrary</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WPF Word Docx</a>
+                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt 串口 serial</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt 信号 槽</a>
+                <a href="javascript:void(0)" class="js-tag color4">OCI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt icmp</a>
+                <a href="javascript:void(0)" class="js-tag color4">预编译</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt 托盘</a>
+                <a href="javascript:void(0)" class="js-tag color1">QUdpSocket</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt 数据库</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">VC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Qt 国际化 中文</a>
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt .ini</a>
+                <a href="javascript:void(0)" class="js-tag color3">串口</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Qt Excel</a>
+                <a href="javascript:void(0)" class="js-tag color2">serial</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">信号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">槽</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WPF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Docx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">icmp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">托盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ico</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">国际化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">中文</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ini</a>
               </li>
             
             <div class="clearfix"></div>
@@ -557,7 +618,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很开心&lt;br&gt;&lt;br&gt;有了自己的Blog&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">一路走来&lt;br&gt;跌跌撞撞&lt;br&gt;&lt;br&gt;但管努力&lt;br&gt;莫问前程</div>
   	  	
     	</section>
     

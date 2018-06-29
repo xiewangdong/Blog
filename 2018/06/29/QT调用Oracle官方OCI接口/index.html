@@ -8,23 +8,23 @@
   <link rel="dns-prefetch" href="http://xiewangdong.coding.me/Blog">
   <title>Qt调用Oracle官方OCI | 熊窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Pro文件中设置：12INCLUDEPATH +=C:\oracle\ora81\oci\includeLIBS +=-LC:\oracle\ora81\oci\lib\msvc\ -loci 代码：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545">
-<meta name="keywords" content="Qt Oracle 数据库 OCI">
+  <meta name="description" content="Pro文件中设置：12INCLUDEPATH +=C:\oracle\ora81\oci\includeLIBS +=-LC:\oracle\ora81\oci\lib\msvc\ -loci">
+<meta name="keywords" content="Qt,Oracle,数据库,OCI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Qt调用Oracle官方OCI">
 <meta property="og:url" content="http://xiewangdong.coding.me/Blog/2018/06/29/QT调用Oracle官方OCI接口/index.html">
 <meta property="og:site_name" content="熊窝">
-<meta property="og:description" content="Pro文件中设置：12INCLUDEPATH +=C:\oracle\ora81\oci\includeLIBS +=-LC:\oracle\ora81\oci\lib\msvc\ -loci 代码：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-29T09:09:25.229Z">
+<meta property="og:description" content="Pro文件中设置：12INCLUDEPATH +=C:\oracle\ora81\oci\includeLIBS +=-LC:\oracle\ora81\oci\lib\msvc\ -loci">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-29T11:56:21.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qt调用Oracle官方OCI">
-<meta name="twitter:description" content="Pro文件中设置：12INCLUDEPATH +=C:\oracle\ora81\oci\includeLIBS +=-LC:\oracle\ora81\oci\lib\msvc\ -loci 代码：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545">
+<meta name="twitter:description" content="Pro文件中设置：12INCLUDEPATH +=C:\oracle\ora81\oci\includeLIBS +=-LC:\oracle\ora81\oci\lib\msvc\ -loci">
   
     <link rel="alternative" href="/atom.xml" title="熊窝" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/Blog/assets/images/xw.png">
   
   <link rel="stylesheet" type="text/css" href="/Blog/./main.0cf68a.css">
   <style type="text/css">
@@ -48,7 +48,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/Blog/" class="profilepic">
-			<img src="/assets/images/touxiang.jpg" class="js-avatar">
+			<img src="/Blog/assets/images/touxiang.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/Blog/">小熊开大</a></h1>
@@ -102,7 +102,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/assets/images/touxiang.jpg" class="js-avatar">
+				<img src="/Blog/assets/images/touxiang.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">小熊开大</h1>
@@ -166,6 +166,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Pro文件中设置："><a href="#Pro文件中设置：" class="headerlink" title="Pro文件中设置："></a>Pro文件中设置：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INCLUDEPATH +=C:\oracle\ora81\oci\include</span><br><span class="line">LIBS +=-LC:\oracle\ora81\oci\lib\msvc\ -loci</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br></pre></td><td class="code"><pre><span class="line">/***********初始化数据库***********/</span><br><span class="line">//初始化OCI环境句柄指针</span><br><span class="line">OCIEnv *envhpp=NULL;</span><br><span class="line">//初始化服务器句柄</span><br><span class="line">OCIServer* servhpp=NULL;</span><br><span class="line">//初始化捕获OCI错误信息</span><br><span class="line">OCIError* errhpp=NULL;</span><br><span class="line">//初始化会话句柄</span><br><span class="line">OCISession *usrhpp=NULL;</span><br><span class="line">//初始化服务上下文句柄</span><br><span class="line">OCISvcCtx *svchpp=NULL;</span><br><span class="line">//初始化表达式句柄</span><br><span class="line">OCIStmt *stmthpp=NULL;</span><br><span class="line"> </span><br><span class="line">//定义数据库网络服务名</span><br><span class="line">std::string server=&quot;ora8&quot;;</span><br><span class="line"> </span><br><span class="line">//创建OCI化境，并设置环境句柄</span><br><span class="line">sword swResult=OCIEnvCreate(&amp;envhpp,OCI_DEFAULT,NULL,NULL,NULL,NULL,0,NULL);</span><br><span class="line">if(swResult!=OCI_SUCCESS&amp;&amp;swResult!=OCI_SUCCESS_WITH_INFO)</span><br><span class="line">&#123;</span><br><span class="line">    QMessageBox::warning(this,&quot;Error&quot;,&quot;Oracle环境初始化错误！&quot;);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">//创建错误句柄</span><br><span class="line">OCIHandleAlloc((dvoid*)envhpp,(dvoid**)&amp;errhpp,OCI_HTYPE_ERROR,(size_t)0,(dvoid**)0);</span><br><span class="line">//创建服务句柄</span><br><span class="line">OCIHandleAlloc((dvoid*)envhpp,(dvoid**)&amp;servhpp,OCI_HTYPE_SERVER,(size_t)0,(dvoid**)0);</span><br><span class="line">//连接服务器，如果失败则获取错误码</span><br><span class="line">if(OCIServerAttach(servhpp,errhpp,(text*)server.c_str(),strlen(server.c_str()),0)!=OCI_SUCCESS)</span><br><span class="line">&#123;</span><br><span class="line">    int errcno;</span><br><span class="line">    char errbuf[512];</span><br><span class="line">    sb4 errcode;</span><br><span class="line">    //获取错误指针和OCI错误代码</span><br><span class="line">    OCIErrorGet((dvoid*)errhpp,(ub4)1,(text*)NULL,&amp;errcode,(ub1*)errbuf,(ub4)sizeof(errbuf),OCI_HTYPE_ERROR);</span><br><span class="line">    errcno=errcode;</span><br><span class="line">   </span><br><span class="line">    QMessageBox::warning(this,&quot;Error&quot;,&quot;Oracle server attach error...&quot;);</span><br><span class="line">   </span><br><span class="line">    OCIHandleFree((dvoid*)envhpp,OCI_HTYPE_ENV);</span><br><span class="line">    OCIHandleFree((dvoid*)servhpp,OCI_HTYPE_SERVER);</span><br><span class="line">    OCIHandleFree((dvoid*)errhpp,OCI_HTYPE_ERROR);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/***********连接数据库***********/</span><br><span class="line">std::string user=&quot;LJBDDB&quot;;</span><br><span class="line">std::string pas=&quot;LJBDDB&quot;;</span><br><span class="line">errhpp=NULL;</span><br><span class="line"> </span><br><span class="line">//创建错误句柄</span><br><span class="line">(void)OCIHandleAlloc((dvoid*)envhpp,(dvoid**)&amp;errhpp,OCI_HTYPE_ERROR,(size_t)0,(dvoid**)0);</span><br><span class="line">//创建服务上下文句柄</span><br><span class="line">(void)OCIHandleAlloc((dvoid*)envhpp,(dvoid**)&amp;svchpp,OCI_HTYPE_SVCCTX,(size_t)0,(dvoid**)0);</span><br><span class="line">//设置属性</span><br><span class="line">(void)OCIAttrSet((dvoid*)svchpp,OCI_HTYPE_SVCCTX,(dvoid*)servhpp,(ub4)0,OCI_ATTR_SERVER,(OCIError*)errhpp);</span><br><span class="line">//创建用户连接句柄</span><br><span class="line">(void)OCIHandleAlloc((dvoid*)envhpp,(dvoid**)&amp;usrhpp,(ub4)OCI_HTYPE_SESSION,(size_t)0,(dvoid**)0);</span><br><span class="line">//设置用户名密码</span><br><span class="line">(void)OCIAttrSet((dvoid*)usrhpp,(ub4)OCI_HTYPE_SESSION,(dvoid*)user.c_str(),(ub4)strlen(user.c_str()),(ub4)OCI_ATTR_USERNAME,(OCIError*)errhpp);</span><br><span class="line">(void)OCIAttrSet((dvoid*)usrhpp,(ub4)OCI_HTYPE_SESSION,(dvoid*)pas.c_str(),(ub4)strlen(pas.c_str()),(ub4)OCI_ATTR_PASSWORD,(OCIError*)errhpp);</span><br><span class="line">//创建会话连接</span><br><span class="line">if(OCISessionBegin(svchpp,errhpp,usrhpp,OCI_CRED_RDBMS,(ub4)OCI_DEFAULT)!=OCI_SUCCESS)</span><br><span class="line">&#123;</span><br><span class="line">    int errcno;</span><br><span class="line">    char errbuf[512]=&#123;&apos;\0&apos;&#125;;</span><br><span class="line">    sb4 errcode;</span><br><span class="line">    //获取错误指针和OCI错误代码</span><br><span class="line">    OCIErrorGet((dvoid*)errhpp,(ub4)1,(text*)NULL,&amp;errcode,(ub1*)errbuf,(ub4)sizeof(errbuf),OCI_HTYPE_ERROR);</span><br><span class="line">    errcno=errcode;</span><br><span class="line">   </span><br><span class="line">    QMessageBox::warning(this,&quot;Error&quot;,&quot;用户会话失败！&quot;);</span><br><span class="line">    OCIHandleFree((dvoid*)usrhpp,OCI_HTYPE_SESSION);</span><br><span class="line">    OCIHandleFree((dvoid*)svchpp,OCI_HTYPE_SVCCTX);</span><br><span class="line">    OCIHandleFree((dvoid*)errhpp,OCI_HTYPE_ERROR);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">//QMessageBox::warning(this,&quot;OK&quot;,&quot;用户会话成功!&quot;);</span><br><span class="line"> </span><br><span class="line">(void)OCIAttrSet((dvoid*)svchpp,(ub4)OCI_HTYPE_SVCCTX,(dvoid*)usrhpp,(ub4)0,(ub4)OCI_ATTR_SESSION,(OCIError*)errhpp);</span><br><span class="line"> </span><br><span class="line">/***********执行查询SQL语句***********/</span><br><span class="line">errhpp=NULL;</span><br><span class="line">//创建一个表达式句柄</span><br><span class="line">if(OCIHandleAlloc((dvoid*)envhpp,(dvoid**)&amp;stmthpp,OCI_HTYPE_STMT,(size_t)0,(dvoid**)0)!=OCI_SUCCESS)</span><br><span class="line">&#123;</span><br><span class="line">    QMessageBox::warning(this,&quot;Error&quot;,&quot;Create STMT error!&quot;);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">//QMessageBox::warning(this,&quot;OK&quot;,&quot;Create STMT success!&quot;);</span><br><span class="line">//创建错误句柄</span><br><span class="line">OCIHandleAlloc((dvoid*)envhpp,(dvoid**)&amp;errhpp,OCI_HTYPE_ERROR,(size_t)0,(dvoid**)0);</span><br><span class="line">//Select语句</span><br><span class="line">char sql[255]=&quot;select mc from ZHKZ_QKZH_QKDW_DWBG&quot;;</span><br><span class="line"> </span><br><span class="line">if(OCIStmtPrepare(stmthpp,errhpp,(text*)sql,(ub4)strlen(sql),(ub4)OCI_NTV_SYNTAX,(ub4)OCI_DEFAULT)!=OCI_SUCCESS)</span><br><span class="line">&#123;</span><br><span class="line">    QMessageBox::warning(this,&quot;Error&quot;,&quot;Create prepare error!&quot;);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">//QMessageBox::warning(this,&quot;Error&quot;,&quot;Create prepare success!&quot;);</span><br><span class="line"> </span><br><span class="line">/***********绑定参数***********/</span><br><span class="line">//申请绑定字段的句柄</span><br><span class="line">OCIDefine *bhp1=NULL;</span><br><span class="line"> </span><br><span class="line">//存放数据的变量或者结构体</span><br><span class="line">char mc[255]=&quot;&quot;;</span><br><span class="line">//指定提取数据长度</span><br><span class="line">ub2 datalen=0;</span><br><span class="line">//定义指示器变量，用于取可能存在空值的字段</span><br><span class="line">char isnul[6]=&quot;&quot;;</span><br><span class="line">//定义输出变量</span><br><span class="line">OCIDefineByPos(stmthpp,&amp;bhp1,errhpp,1,(dvoid*)mc,sizeof(mc),SQLT_CHR,isnul,&amp;datalen,NULL,OCI_DEFAULT);</span><br><span class="line">//获取SQL语句类型</span><br><span class="line">ub2 stmt_type;</span><br><span class="line">OCIAttrGet((dvoid*)stmthpp,(ub4)OCI_HTYPE_STMT,(dvoid*)&amp;stmt_type,(ub4*)0,(ub4)OCI_ATTR_STMT_TYPE,errhpp);</span><br><span class="line">//执行SQL语句</span><br><span class="line">OCIStmtExecute(svchpp,stmthpp,errhpp,(ub4)0,(ub4)0,(OCISnapshot*)NULL,(OCISnapshot*)NULL,OCI_DEFAULT);</span><br><span class="line">//获取查询信息</span><br><span class="line">int rows_fetched;</span><br><span class="line">QTextCodec *codec = QTextCodec::codecForName(&quot;GB18030&quot;);</span><br><span class="line">QString sss;</span><br><span class="line">this-&gt;ui-&gt;textShow-&gt;setText(&quot;&quot;);</span><br><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">    this-&gt;ui-&gt;textShow-&gt;moveCursor(QTextCursor::Start);</span><br><span class="line">    sss=codec-&gt;toUnicode(mc,strlen(mc));</span><br><span class="line">    this-&gt;ui-&gt;textShow-&gt;insertPlainText(sss+&quot;\n&quot;);</span><br><span class="line">    memset(mc,&apos;\0&apos;,sizeof(mc));</span><br><span class="line">&#125;while(OCIStmtFetch(stmthpp,errhpp,1,OCI_FETCH_NEXT,OCI_DEFAULT)!=OCI_NO_DATA);</span><br><span class="line"> </span><br><span class="line">//获得记录条数</span><br><span class="line">OCIAttrGet((CONST void*)stmthpp,OCI_HTYPE_STMT,(void*)&amp;rows_fetched,(ub4*)sizeof(rows_fetched),OCI_ATTR_ROW_COUNT,errhpp);</span><br><span class="line">this-&gt;ui-&gt;textShow-&gt;moveCursor(QTextCursor::Start);</span><br><span class="line">this-&gt;ui-&gt;textShow-&gt;insertPlainText(&quot;共查询到&quot;+QString::number(rows_fetched)+&quot;条记录！\n&quot;);</span><br><span class="line"> </span><br><span class="line">//断开用户会话</span><br><span class="line">OCILogoff(svchpp,errhpp);</span><br><span class="line">//断开服务器连接</span><br><span class="line">OCIServerDetach(servhpp,errhpp,OCI_DEFAULT);</span><br><span class="line">//释放资源</span><br><span class="line">OCIHandleFree((dvoid*)stmthpp,OCI_HTYPE_STMT);</span><br><span class="line">OCIHandleFree((dvoid*)svchpp,OCI_HTYPE_SVCCTX);</span><br><span class="line">OCIHandleFree((dvoid*)servhpp,OCI_HTYPE_SERVER);</span><br><span class="line">OCIHandleFree((dvoid*)errhpp,OCI_HTYPE_ERROR);</span><br></pre></td></tr></table></figure>
 
       
@@ -180,7 +181,19 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Qt Oracle 数据库 OCI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Qt</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Oracle</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OCI</a>
         		</li>
       		
 		</ul>
@@ -387,111 +400,163 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt QProcess</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt QSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">QProcess</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt QString char</a>
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt QTableWidget</a>
+                <a href="javascript:void(0)" class="js-tag color4">QSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt 右键菜单</a>
+                <a href="javascript:void(0)" class="js-tag color3">QString</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Qt QThread 多线程</a>
+                <a href="javascript:void(0)" class="js-tag color5">char</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Qt QTreeWidget</a>
+                <a href="javascript:void(0)" class="js-tag color3">QTableWidget</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt Lib Dll</a>
+                <a href="javascript:void(0)" class="js-tag color5">右键菜单</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt Windows消息</a>
+                <a href="javascript:void(0)" class="js-tag color3">QThread</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt Icon 图标</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt ActiveX</a>
+                <a href="javascript:void(0)" class="js-tag color2">QTreeWidget</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt QLibrary Dll</a>
+                <a href="javascript:void(0)" class="js-tag color4">Lib</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt Oracle 数据库 OCI</a>
+                <a href="javascript:void(0)" class="js-tag color4">Dll</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt 预编译</a>
+                <a href="javascript:void(0)" class="js-tag color5">Windows消息</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt QUdpSocket 网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">Icon 图标</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">VC Dll</a>
+                <a href="javascript:void(0)" class="js-tag color3">ActiveX</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt XML</a>
+                <a href="javascript:void(0)" class="js-tag color4">QLibrary</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WPF Word Docx</a>
+                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt 串口 serial</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt 信号 槽</a>
+                <a href="javascript:void(0)" class="js-tag color4">OCI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt icmp</a>
+                <a href="javascript:void(0)" class="js-tag color4">预编译</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt 托盘</a>
+                <a href="javascript:void(0)" class="js-tag color1">QUdpSocket</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Qt 数据库</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Qt Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">VC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Qt 国际化 中文</a>
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt .ini</a>
+                <a href="javascript:void(0)" class="js-tag color3">串口</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Qt Excel</a>
+                <a href="javascript:void(0)" class="js-tag color2">serial</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">信号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">槽</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WPF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Docx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">icmp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">托盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ico</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">国际化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">中文</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ini</a>
               </li>
             
             <div class="clearfix"></div>
@@ -554,7 +619,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很开心&lt;br&gt;&lt;br&gt;有了自己的Blog&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">一路走来&lt;br&gt;跌跌撞撞&lt;br&gt;&lt;br&gt;但管努力&lt;br&gt;莫问前程</div>
   	  	
     	</section>
     
