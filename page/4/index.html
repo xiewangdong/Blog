@@ -35,6 +35,16 @@
   
 
   
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?cb0f95974cda2130996defd4c51a10d6";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 
 </head>
 
@@ -145,87 +155,6 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-数据库操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/2018/06/29/数据库操作/">数据库操作</a>
-    </h1>
-  
-
-        
-        <a href="/Blog/2018/06/29/数据库操作/" class="archive-article-date">
-  	<time datetime="2018-06-29T08:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Pro文件中添加"><a href="#Pro文件中添加" class="headerlink" title="Pro文件中添加"></a>Pro文件中添加</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QT += sql</span><br></pre></td></tr></table></figure>
-<h2 id="需包含的文件"><a href="#需包含的文件" class="headerlink" title="需包含的文件"></a>需包含的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QSqlDatabase&gt;</span><br><span class="line">#include &lt;QSqlError&gt;</span><br><span class="line">#include &lt;QSqlQuery&gt;</span><br><span class="line">#include &lt;QVariant&gt;</span><br><span class="line">#include &lt;QSqlResult&gt;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/Blog/2018/06/29/数据库操作/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Qt</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/2018/06/29/数据库操作/">阅读全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
     <article id="post-添加使用资源文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -396,19 +325,19 @@
 
 
   
-    <article id="post-语言翻译" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-托盘图标" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Blog/2018/06/29/语言翻译/">Qt中文语言</a>
+      <a class="article-title" href="/Blog/2018/06/29/托盘图标/">Qt托盘实现</a>
     </h1>
   
 
         
-        <a href="/Blog/2018/06/29/语言翻译/" class="archive-article-date">
+        <a href="/Blog/2018/06/29/托盘图标/" class="archive-article-date">
   	<time datetime="2018-06-29T08:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
 </a>
         
@@ -416,10 +345,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>添加中文语言资源：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qt_zh_CN.qm</span><br></pre></td></tr></table></figure></p>
-<p>在Qt目录下搜索该文件，并作为资源文件添加至醒目。<br>
+        <h2 id="Pro文件添加"><a href="#Pro文件添加" class="headerlink" title="Pro文件添加"></a>Pro文件添加</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Qt+=widgets</span><br></pre></td></tr></table></figure>
+<h2 id="包含文件为："><a href="#包含文件为：" class="headerlink" title="包含文件为："></a>包含文件为：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QSystemTrayIcon&gt;</span><br><span class="line">#include &lt;QMenu&gt;</span><br><span class="line">#include &lt;QAction&gt;</span><br><span class="line">#include &lt;QIcon&gt;</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/Blog/2018/06/29/语言翻译/#more">more >></a>
+          <a class="article-more-a" href="/Blog/2018/06/29/托盘图标/#more">more >></a>
         
       
 
@@ -437,11 +366,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">国际化</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">中文</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">托盘</a>
         		</li>
       		
 		</ul>
@@ -451,7 +376,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/2018/06/29/语言翻译/">阅读全文 >></a>
+          <a class="article-more-a" href="/Blog/2018/06/29/托盘图标/">阅读全文 >></a>
         </p>
       
 
@@ -530,6 +455,91 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/Blog/2018/06/29/读取、写入config配置文件/">阅读全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-语言翻译" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Blog/2018/06/29/语言翻译/">Qt中文语言</a>
+    </h1>
+  
+
+        
+        <a href="/Blog/2018/06/29/语言翻译/" class="archive-article-date">
+  	<time datetime="2018-06-29T08:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>添加中文语言资源：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qt_zh_CN.qm</span><br></pre></td></tr></table></figure></p>
+<p>在Qt目录下搜索该文件，并作为资源文件添加至醒目。<br>
+        
+          <a class="article-more-a" href="/Blog/2018/06/29/语言翻译/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Qt</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">国际化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">中文</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Blog/2018/06/29/语言翻译/">阅读全文 >></a>
         </p>
       
 
@@ -639,19 +649,19 @@
 
 
   
-    <article id="post-Qt中漂亮的几款QSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-QT预编译头文件，加快编译速度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Blog/2018/06/29/Qt中漂亮的几款QSS/">几款漂亮的QSS</a>
+      <a class="article-title" href="/Blog/2018/06/29/QT预编译头文件，加快编译速度/">Qt预编译配置</a>
     </h1>
   
 
         
-        <a href="/Blog/2018/06/29/Qt中漂亮的几款QSS/" class="archive-article-date">
+        <a href="/Blog/2018/06/29/QT预编译头文件，加快编译速度/" class="archive-article-date">
   	<time datetime="2018-06-29T08:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
 </a>
         
@@ -659,9 +669,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
+        <h3 id="新建一个头文件"><a href="#新建一个头文件" class="headerlink" title="新建一个头文件"></a>新建一个头文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//stable.h</span><br><span class="line">// Add C includes here</span><br><span class="line">// ------ C includes------</span><br><span class="line">#if defined __cplusplus</span><br><span class="line">// Add C++ includes here</span><br><span class="line">#include &lt;stdlib&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;QApplication&gt;</span><br><span class="line">// Qt includes</span><br><span class="line">#include &lt;QPushButton&gt;</span><br><span class="line">#include &lt;QLabel&gt;</span><br><span class="line">#include &quot;thirdparty/include/libmain.h&quot;</span><br><span class="line">#include &quot;my_stable_class.h&quot;</span><br><span class="line">...</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/Blog/2018/06/29/Qt中漂亮的几款QSS/#more">more >></a>
+          <a class="article-more-a" href="/Blog/2018/06/29/QT预编译头文件，加快编译速度/#more">more >></a>
         
       
 
@@ -679,7 +689,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">QSS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">预编译</a>
         		</li>
       		
 		</ul>
@@ -689,7 +699,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/2018/06/29/Qt中漂亮的几款QSS/">阅读全文 >></a>
+          <a class="article-more-a" href="/Blog/2018/06/29/QT预编译头文件，加快编译速度/">阅读全文 >></a>
         </p>
       
 
@@ -820,10 +830,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">QProcess</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Excel</a>
               </li>
              
@@ -832,15 +838,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">QProcess</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">QString</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">char</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QTableWidget</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -876,11 +882,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ActiveX</a>
+                <a href="javascript:void(0)" class="js-tag color4">QLibrary</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">QLibrary</a>
+                <a href="javascript:void(0)" class="js-tag color3">QTableWidget</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ActiveX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -896,10 +906,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">预编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">QUdpSocket</a>
               </li>
              
@@ -908,27 +914,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">预编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">VC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">XML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">串口</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">serial</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">信号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">槽</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -944,11 +934,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">串口</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">serial</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">icmp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">托盘</a>
+                <a href="javascript:void(0)" class="js-tag color3">信号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">槽</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -964,15 +970,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">托盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ini</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">国际化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">中文</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Ini</a>
               </li>
             
             <div class="clearfix"></div>

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="熊窝">
 <meta property="og:description" content="QDomDocument、QDomElement、QDomText类用于操作xml文件；">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-29T11:57:21.582Z">
+<meta property="og:updated_time" content="2018-06-30T05:33:20.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qt操作XML文件">
 <meta name="twitter:description" content="QDomDocument、QDomElement、QDomText类用于操作xml文件；">
@@ -36,6 +36,16 @@
   
 
   
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?cb0f95974cda2130996defd4c51a10d6";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 
 </head>
 
@@ -165,7 +175,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>QDomDocument、QDomElement、QDomText类用于操作xml文件；<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">//定义1个QDomDocument实例，命名为“MyTDS”</span><br><span class="line">QDomDocument doc(&quot;MyTDS&quot;);</span><br><span class="line">//读取1个存在的model.xml文件</span><br><span class="line">QFile model(&quot;model.xml&quot;);</span><br><span class="line">//打开方式为只读</span><br><span class="line">if (!model.open(QIODevice::ReadOnly))</span><br><span class="line">&#123;</span><br><span class="line">    QMessageBox::warning(this,&quot;错误&quot;,&quot;未找到model.xml文件！&quot;);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">//将doc的内容设置为“model.xml”的内容</span><br><span class="line">if (!doc.setContent(&amp;model)) &#123;</span><br><span class="line">    model.close();</span><br><span class="line">    QMessageBox::warning(this,&quot;错误&quot;,&quot;读取model.xml文件失败！&quot;);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">model.close();</span><br><span class="line"> </span><br><span class="line">//获取doc根元素</span><br><span class="line">QDomElement docElem = doc.documentElement();</span><br><span class="line">//生成1个“Domain”元素，并添加至doc根节点</span><br><span class="line">QDomElement root = doc.createElement(&quot;Domain&quot;);</span><br><span class="line">docElem.appendChild(root);</span><br><span class="line">//生成1个“Attribute”元素，并添加至“Domain”节点</span><br><span class="line">QDomElement attribute = doc.createElement(&quot;Attribute&quot;);</span><br><span class="line">root.appendChild(attribute);</span><br><span class="line">//生成1个“BDNM”元素，设置其内容为“9999910”，并添加至“Attribute”节点</span><br><span class="line">QDomElement BDNM = doc.createElement(&quot;BDNM&quot;);</span><br><span class="line">attribute.appendChild(BDNM);</span><br><span class="line">QDomText t = doc.createTextNode(&quot;9999910&quot;);</span><br><span class="line">BDNM.appendChild(t);</span><br><span class="line">//定义1个QFile文件实例，命名为“MyTDS.xml”</span><br><span class="line">QFile file(&quot;MyTDS.xml&quot;);</span><br><span class="line">//设置文件打开方式为只写、清空早期数据、Text文本模式</span><br><span class="line">if (!file.open(QIODevice::WriteOnly|QIODevice::Truncate|QIODevice::Text))</span><br><span class="line">return;</span><br><span class="line">//定义1个QTextStream实例，用于向file写Text流</span><br><span class="line">QTextStream out(&amp;file);</span><br><span class="line">//设置文件编码方式为“gb2312”</span><br><span class="line">out.setCodec(&quot;gb2312&quot;);</span><br><span class="line">doc.save(out,4,QDomNode::EncodingFromTextStream);</span><br><span class="line">file.close();</span><br><span class="line">QMessageBox::warning(this,&quot;提示&quot;,&quot;MyTds文件已经生成！&quot;);</span><br><span class="line"> </span><br><span class="line">QDomNodeList QDomNode::childNodes() const//获取所有一级子节点列表</span><br></pre></td></tr></table></figure></p>
+        <p>QDomDocument、QDomElement、QDomText类用于操作xml文件；<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">//定义1个QDomDocument实例，命名为“MyTDS”</span><br><span class="line">QDomDocument doc(&quot;MyTDS&quot;);</span><br><span class="line">//读取1个存在的model.xml文件</span><br><span class="line">QFile model(&quot;model.xml&quot;);</span><br><span class="line">//打开方式为只读</span><br><span class="line">if (!model.open(QIODevice::ReadOnly))</span><br><span class="line">&#123;</span><br><span class="line">    QMessageBox::warning(this,&quot;错误&quot;,&quot;未找到model.xml文件！&quot;);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">//将doc的内容设置为“model.xml”的内容</span><br><span class="line">if (!doc.setContent(&amp;model)) &#123;</span><br><span class="line">    model.close();</span><br><span class="line">    QMessageBox::warning(this,&quot;错误&quot;,&quot;读取model.xml文件失败！&quot;);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">model.close();</span><br><span class="line"> </span><br><span class="line">//获取doc根元素</span><br><span class="line">QDomElement docElem = doc.documentElement();</span><br><span class="line">//生成1个“Domain”元素，并添加至doc根节点</span><br><span class="line">QDomElement root = doc.createElement(&quot;Domain&quot;);</span><br><span class="line">docElem.appendChild(root);</span><br><span class="line">//生成1个“Attribute”元素，并添加至“Domain”节点</span><br><span class="line">QDomElement attribute = doc.createElement(&quot;Attribute&quot;);</span><br><span class="line">root.appendChild(attribute);</span><br><span class="line">//生成1个“BDNM”元素，设置其内容为“9999910”，并添加至“Attribute”节点</span><br><span class="line">QDomElement BDNM = doc.createElement(&quot;BDNM&quot;);</span><br><span class="line">attribute.appendChild(BDNM);</span><br><span class="line">QDomText t = doc.createTextNode(&quot;9999910&quot;);</span><br><span class="line">BDNM.appendChild(t);</span><br><span class="line">//定义1个QFile文件实例，命名为“MyTDS.xml”</span><br><span class="line">QFile file(&quot;MyTDS.xml&quot;);</span><br><span class="line">//设置文件打开方式为只写、清空早期数据、Text文本模式</span><br><span class="line">if (!file.open(QIODevice::WriteOnly|QIODevice::Truncate|QIODevice::Text))</span><br><span class="line">return;</span><br><span class="line">//定义1个QTextStream实例，用于向file写Text流</span><br><span class="line">QTextStream out(&amp;file);</span><br><span class="line">//设置文件编码方式为“gb2312”</span><br><span class="line">out.setCodec(&quot;gb2312&quot;);</span><br><span class="line">doc.save(out,4,QDomNode::EncodingFromTextStream);</span><br><span class="line">file.close();</span><br><span class="line">QMessageBox::warning(this,&quot;提示&quot;,&quot;MyTds文件已经生成！&quot;);</span><br><span class="line"> </span><br><span class="line">QDomNodeList QDomNode::childNodes() const//获取所有一级子节点列表</span><br></pre></td></tr></table></figure>
 <h2 id="读取一个XMl文件，代码如下："><a href="#读取一个XMl文件，代码如下：" class="headerlink" title="读取一个XMl文件，代码如下："></a>读取一个XMl文件，代码如下：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">QDomDocument doc(&quot;mydocument&quot;);</span><br><span class="line"> QFile file(&quot;mydocument.xml&quot;);</span><br><span class="line"> if (!file.open(QIODevice::ReadOnly))</span><br><span class="line"> return;</span><br><span class="line"> if (!doc.setContent(&amp;file)) &#123;</span><br><span class="line"> file.close();</span><br><span class="line"> return;</span><br><span class="line"> &#125;</span><br><span class="line"> file.close();</span><br><span class="line">// print out the element names of all elements that are direct children</span><br><span class="line"> // of the outermost element.</span><br><span class="line"> QDomElement docElem = doc.documentElement();</span><br><span class="line">QDomNode n = docElem.firstChild();</span><br><span class="line"> while(!n.isNull()) &#123;</span><br><span class="line"> QDomElement e = n.toElement(); // try to convert the node to an element.</span><br><span class="line"> if(!e.isNull()) &#123;</span><br><span class="line"> cout &lt;&lt; qPrintable(e.tagName()) &lt;&lt; endl; // the node really is an element.</span><br><span class="line"> &#125;</span><br><span class="line"> n = n.nextSibling();</span><br><span class="line"> &#125;</span><br><span class="line">// Here we append a new element to the end of the document</span><br><span class="line"> QDomElement elem = doc.createElement(&quot;img&quot;);</span><br><span class="line"> elem.setAttribute(&quot;src&quot;, &quot;myimage.png&quot;);</span><br><span class="line"> docElem.appendChild(elem);</span><br></pre></td></tr></table></figure>
 <h2 id="生成一个XML文件，代码如下："><a href="#生成一个XML文件，代码如下：" class="headerlink" title="生成一个XML文件，代码如下："></a>生成一个XML文件，代码如下：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">QDomDocument doc(&quot;MyML&quot;);</span><br><span class="line"> QDomElement root = doc.createElement(&quot;MyML&quot;);</span><br><span class="line"> doc.appendChild(root);</span><br><span class="line">QDomElement tag = doc.createElement(&quot;Greeting&quot;);</span><br><span class="line"> root.appendChild(tag);</span><br><span class="line">QDomText t = doc.createTextNode(&quot;Hello World&quot;);</span><br><span class="line"> tag.appendChild(t);</span><br><span class="line">QString xml = doc.toString();</span><br></pre></td></tr></table></figure>
 
@@ -255,18 +266,18 @@
   
 <nav id="article-nav">
   
-    <a href="/Blog/2018/06/29/VC创建DLL动态链接库/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Blog/2018/06/29/Xceed Words利用模板导出Word/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          VC生成动态链接库
+          Xceed Word导出docx
         
       </div>
     </a>
   
   
-    <a href="/Blog/2018/06/29/一个值得借鉴的QSS样式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">一个值得借鉴的QSS</div>
+    <a href="/Blog/2018/06/29/串口操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Qt串口编程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -396,10 +407,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">QProcess</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Excel</a>
               </li>
              
@@ -408,15 +415,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">QProcess</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">QString</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">char</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QTableWidget</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -452,11 +459,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ActiveX</a>
+                <a href="javascript:void(0)" class="js-tag color4">QLibrary</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">QLibrary</a>
+                <a href="javascript:void(0)" class="js-tag color3">QTableWidget</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ActiveX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -472,10 +483,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">预编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">QUdpSocket</a>
               </li>
              
@@ -484,27 +491,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">预编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">VC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">XML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">串口</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">serial</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">信号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">槽</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,11 +511,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">串口</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">serial</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">icmp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">托盘</a>
+                <a href="javascript:void(0)" class="js-tag color3">信号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">槽</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,15 +547,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">托盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ini</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">国际化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">中文</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Ini</a>
               </li>
             
             <div class="clearfix"></div>
