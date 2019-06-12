@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xiewangdong.coding.me/Blog">
-  <title>Archives: 2018/7 | 熊窝</title>
+  <title>APT攻击技术及分析溯源方法 | 熊窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="只要死不了，就能熬得过。">
+  <meta name="description" content="APT攻击简介​    震网（Stuxnet）又称超级工厂，世界上首个专门针对工业控制系统的破坏病毒，能够利用对windows系统和西门子SIMATIC WinCC系统的7个漏洞进行攻击，在2007-2011年之间攻击了伊朗核设施，导致伊朗的核计划至少推迟两年多。 ​    索尼被攻击事件2011年索尼公司被黑客攻击，该攻击组织为朝鲜政府支持的lazarus。 ​    乌克兰电力门事件2015年">
 <meta name="keywords" content="Qt WPF">
-<meta property="og:type" content="website">
-<meta property="og:title" content="熊窝">
-<meta property="og:url" content="http://xiewangdong.coding.me/Blog/archives/2018/07/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="APT攻击技术及分析溯源方法">
+<meta property="og:url" content="http://xiewangdong.coding.me/Blog/posts/网络安全/APT/2019-06-12-APT攻击技术及分析溯源方法.html">
 <meta property="og:site_name" content="熊窝">
-<meta property="og:description" content="只要死不了，就能熬得过。">
+<meta property="og:description" content="APT攻击简介​    震网（Stuxnet）又称超级工厂，世界上首个专门针对工业控制系统的破坏病毒，能够利用对windows系统和西门子SIMATIC WinCC系统的7个漏洞进行攻击，在2007-2011年之间攻击了伊朗核设施，导致伊朗的核计划至少推迟两年多。 ​    索尼被攻击事件2011年索尼公司被黑客攻击，该攻击组织为朝鲜政府支持的lazarus。 ​    乌克兰电力门事件2015年">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-12T14:44:43.676Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="熊窝">
-<meta name="twitter:description" content="只要死不了，就能熬得过。">
+<meta name="twitter:title" content="APT攻击技术及分析溯源方法">
+<meta name="twitter:description" content="APT攻击简介​    震网（Stuxnet）又称超级工厂，世界上首个专门针对工业控制系统的破坏病毒，能够利用对windows系统和西门子SIMATIC WinCC系统的7个漏洞进行攻击，在2007-2011年之间攻击了伊朗核设施，导致伊朗的核计划至少推迟两年多。 ​    索尼被攻击事件2011年索尼公司被黑客攻击，该攻击组织为朝鲜政府支持的lazarus。 ​    乌克兰电力门事件2015年">
   
     <link rel="alternative" href="/atom.xml" title="熊窝" type="application/atom+xml">
   
@@ -152,32 +153,475 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Hexo文档" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-APT攻击技术及分析溯源方法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/posts/programming/Hexo/2018-07-03-Hexo文档.html">Hexo文档</a>
+    <h1 class="article-title" itemprop="name">
+      APT攻击技术及分析溯源方法
     </h1>
   
 
         
-        <a href="/Blog/posts/programming/Hexo/2018-07-03-Hexo文档.html" class="archive-article-date">
-  	<time datetime="2018-07-03T12:56:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-03</time>
+        <a href="/Blog/posts/网络安全/APT/2019-06-12-APT攻击技术及分析溯源方法.html" class="archive-article-date">
+  	<time datetime="2019-06-12T12:56:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="noopener">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-        
-          <a class="article-more-a" href="/Blog/posts/programming/Hexo/2018-07-03-Hexo文档.html#more">more >></a>
-        
+        <h2 id="APT攻击简介"><a href="#APT攻击简介" class="headerlink" title="APT攻击简介"></a>APT攻击简介</h2><p>​    <strong>震网（Stuxnet）</strong>又称超级工厂，世界上首个专门针对工业控制系统的破坏病毒，能够利用对windows系统和西门子SIMATIC WinCC系统的7个漏洞进行攻击，在2007-2011年之间攻击了伊朗核设施，导致伊朗的核计划至少推迟两年多。</p>
+<p>​    <strong>索尼被攻击事件</strong>2011年索尼公司被黑客攻击，该攻击组织为朝鲜政府支持的lazarus。</p>
+<p>​    <strong>乌克兰电力门事件</strong>2015年平安夜。</p>
+<p>​    <strong>希拉里邮件门</strong>希拉里的竞选经理被钓鱼攻击，泄露了密码，导致了希拉里的邮件被泄露，直接影响力美国大选走势。</p>
+<a id="more"></a>
+<h3 id="APT攻击的定义"><a href="#APT攻击的定义" class="headerlink" title="APT攻击的定义"></a>APT攻击的定义</h3><p>​    <strong>Advanced Persistent Thread</strong> 是指高级持续性威胁，本质是针对性攻击。</p>
+<p><strong>高级</strong></p>
+<ul>
+<li>技术手段高级</li>
+<li>攻击战术高级</li>
+</ul>
+<p><strong>持续</strong></p>
+<ul>
+<li>精准</li>
+<li>持续打击特定目标</li>
+<li>攻击准备时间长</li>
+<li>潜伏周期长</li>
+</ul>
+<h3 id="APT攻击的目的"><a href="#APT攻击的目的" class="headerlink" title="APT攻击的目的"></a>APT攻击的目的</h3><p><strong>窃取机密资料</strong></p>
+<ul>
+<li><p>商业机密</p>
+</li>
+<li><p>政府机密</p>
+</li>
+</ul>
+<p><strong>破坏设施</strong></p>
+<ul>
+<li><p>震网</p>
+</li>
+<li><p>乌克兰电厂</p>
+</li>
+<li><p>Petya</p>
+</li>
+</ul>
+<h3 id="APT攻击组织"><a href="#APT攻击组织" class="headerlink" title="APT攻击组织"></a>APT攻击组织</h3><p>公开的有200多个、其中超过20多个组织曾经或者现在还在持续对中国大陆境内的敏感目标进行攻击。<br><a href="https://docs.google.com/spreadsheets/d/1H9_xaxQHpWaa4o_Son4Gx0YOl" target="_blank" rel="noopener">https://docs.google.com/spreadsheets/d/1H9_xaxQHpWaa4o_Son4Gx0YOl</a></p>
+<ul>
+<li>海莲花（APT32）——越南</li>
+<li>寄生兽（DarkHotel）——朝鲜半岛</li>
+<li>白象（摩河草）——印度</li>
+<li>蔓灵花（BITTER）——印度</li>
+<li>穷奇（毒云藤、绿斑）——中国台湾</li>
+<li>蓝宝莲——中国台湾</li>
+</ul>
+<h3 id="APT攻击组织的军火库"><a href="#APT攻击组织的军火库" class="headerlink" title="APT攻击组织的军火库"></a>APT攻击组织的军火库</h3><p><strong>常规武器</strong> 专用木马<br><strong>生化武器</strong> 1Day-Nday<br><strong>核武器</strong> 0day </p>
+<blockquote>
+<p>杀伤力具大、但成本也高；</p>
+<p>一旦被利用，即面临被失效的风险</p>
+</blockquote>
+<h3 id="APT攻击的描述"><a href="#APT攻击的描述" class="headerlink" title="APT攻击的描述"></a>APT攻击的描述</h3><p><strong>TTPs</strong></p>
+<blockquote>
+<p>Tactics：战术<br>Techniques：技术<br>Procedures：过程</p>
+</blockquote>
+<p><strong>模型</strong></p>
+<ul>
+<li><p><em>Killchain</em>  杀伤链，美国洛克希德-马丁公司于2013年</p>
+</li>
+<li><p><em>钻石模型</em>  </p>
+<blockquote>
+<p>对手（Adversary）<br>能力（Capability）<br>基础设施（Infrastructure）<br>受害者（Vicitim）</p>
+</blockquote>
+</li>
+<li><p><em>ATT&amp;CK</em>  目前最常用的TTP知识框架和描述模型。</p>
+</li>
+</ul>
+<h3 id="APT情报来源"><a href="#APT情报来源" class="headerlink" title="APT情报来源"></a>APT情报来源</h3><blockquote>
+<p>安全公司网站、公众号<br>安全研究员社交网络</p>
+</blockquote>
+<h3 id="APT攻击带来的挑战"><a href="#APT攻击带来的挑战" class="headerlink" title="APT攻击带来的挑战"></a>APT攻击带来的挑战</h3><ul>
+<li>攻防的不对等</li>
+</ul>
+<blockquote>
+<p>时间上不对等<br>工具上不对等<br>力量上不对等</p>
+</blockquote>
+<ul>
+<li>对运营体系的冲击</li>
+</ul>
+<blockquote>
+<p>发现困难：攻击隐蔽性高、样本广度低，发现犹如大海捞针<br>检测和防御难度大：需要具有位置威胁的检测和防御能力<br>响应及时难：运营响应时间无法做到实时响应</p>
+</blockquote>
+<p><strong>不得不接受的事实</strong></p>
+<blockquote>
+<p>只要被定位，就很难不被APT组织攻破！</p>
+</blockquote>
+<p><strong>应对策略</strong></p>
+<blockquote>
+<p>调整安全运营思路，转为如何及时发现，采取措施，避免或减少损失。</p>
+</blockquote>
+<hr>
+<h2 id="APT攻击常用方法"><a href="#APT攻击常用方法" class="headerlink" title="APT攻击常用方法"></a>APT攻击常用方法</h2><h3 id="案例：希拉里邮件门"><a href="#案例：希拉里邮件门" class="headerlink" title="案例：希拉里邮件门"></a>案例：希拉里邮件门</h3><ul>
+<li><p>目标选定和前期侦察 </p>
+<blockquote>
+<p>DCCC、DNC</p>
+</blockquote>
+</li>
+<li><p>发起鱼叉攻击、窃取邮件</p>
+<blockquote>
+<p>钓鱼邮件</p>
+<p>利用熟人等社工</p>
+</blockquote>
+</li>
+<li><p>入侵潜伏DCCC</p>
+</li>
+<li><p>入侵DNC</p>
+<blockquote>
+<p>入侵网络</p>
+<p>控制Exchange MailServer</p>
+</blockquote>
+</li>
+<li><p>潜伏窃取资料</p>
+</li>
+<li><p>痕迹清理和对抗</p>
+</li>
+<li><p>发布信息准备</p>
+</li>
+<li><p>DCleaks网站上线</p>
+</li>
+<li><p>社交网络传播信息</p>
+</li>
+<li><p>Guccifer2.0身份上线</p>
+</li>
+<li><p>Dcleaks在选举前3个月再次发布大量文件</p>
+</li>
+<li><p>和特朗普进行联系</p>
+</li>
+</ul>
+<h3 id="攻击战术"><a href="#攻击战术" class="headerlink" title="攻击战术"></a>攻击战术</h3><p>任务：获取A公司的招标计划书</p>
+<blockquote>
+<p>信息搜集<br>初始攻击<br>再次攻击<br>窃取信息<br>完成任务</p>
+</blockquote>
+<h3 id="信息侦察"><a href="#信息侦察" class="headerlink" title="信息侦察"></a>信息侦察</h3><p>外围侦察</p>
+<p>内部侦察</p>
+<h3 id="武器构建"><a href="#武器构建" class="headerlink" title="武器构建"></a>武器构建</h3><p><strong>投递武器</strong></p>
+<p><strong>后渗透武器</strong>：Cobal Strike、msfvenom</p>
+<h3 id="初始攻击"><a href="#初始攻击" class="headerlink" title="初始攻击"></a>初始攻击</h3><h4 id="鱼叉攻击"><a href="#鱼叉攻击" class="headerlink" title="鱼叉攻击"></a>鱼叉攻击</h4><blockquote>
+<p>针对特定目标的网络欺诈行为，最常见的方法是将木马程序作为电子邮件的附件发送给特定的攻击目标，并又是目标打开附件。</p>
+<p>优点：目标投放精准，攻击简单且成本低</p>
+<p>缺点：技术含量低，只要掌握一些基本、非专业的安全技能就可以进行有效防范</p>
+<p>总结：尽管门槛不高，但在实践应用中仍十分有效。</p>
+</blockquote>
+<p>鱼叉攻击能够成功的几个关键点：</p>
+<blockquote>
+<p>发件内容是否具有迷惑性</p>
+</blockquote>
+<blockquote>
+<p>发件人身份可信任</p>
+</blockquote>
+<p>发件人地址伪装</p>
+<blockquote>
+<p>伪装成任何想伪装的发件人邮箱（目标邮箱未设置spf）。</p>
+<p>原理：smtp仅验证用户是否有发邮件的权限</p>
+</blockquote>
+<p>SPF</p>
+<blockquote>
+<p>Sender Policy Framework，即发件人策略框架。SPF记录实际上是服务器的一个DNS记录。</p>
+</blockquote>
+<p>伪装方法</p>
+<blockquote>
+<p>山寨域名</p>
+<p>设置回复地址</p>
+<p>跳板攻击</p>
+</blockquote>
+<p>攻击方式</p>
+<blockquote>
+<p>挂马网站链接</p>
+<p>精心构造附件</p>
+</blockquote>
+<p>诱饵文件类型：</p>
+<blockquote>
+<p>可执行文件：ROL</p>
+<p>lnk类：附带命令行，如起wscript、powershell等</p>
+<p>脚本类：VBS、JS等脚本</p>
+<p>文档类：</p>
+<p>​    Office文档</p>
+<p>​        宏、DDE、内嵌恶意OLE对象、office+flash、pdf+js、Nday、0day</p>
+<p>​        <code>CVE-2018-0802</code></p>
+<p>​    PDF文档</p>
+<p>​        CVE-2018-4901</p>
+<p>​    Flash</p>
+<p>​        <code>CVE-2018-5002</code></p>
+<p>​    IE</p>
+<p>​        CVE-2016-0189、CVE-2018-8174</p>
+<p>压缩文件：Winrar ACE漏洞</p>
+</blockquote>
+<h4 id="水坑攻击"><a href="#水坑攻击" class="headerlink" title="水坑攻击"></a>水坑攻击</h4><blockquote>
+<p>指分析攻击目标的常见活动，在攻击必经之路设置一个“水坑（陷阱）”的攻击方式。</p>
+<p>优点：杀伤力大，且难以防御</p>
+<p>缺点：目标的选择往往不够精确，容易误伤平民，且过早的暴露攻击武器。</p>
+<p>总结：间接的攻击，使得目标扩大和可攻击的点和选择性更大，从而防御难度加大，成功率更高，但也存在副作用。</p>
+</blockquote>
+<p>常用方法</p>
+<blockquote>
+<p>替换目标网站的可信程序</p>
+<p>替换目标网站的指定链接</p>
+<p>社会工程学、提示升级、安装字体等</p>
+<p>对攻陷网站添加漏洞利用代码</p>
+<p>继续跳转钓鱼</p>
+<p>内网下载服务器替换</p>
+</blockquote>
+<h4 id="供应链攻击"><a href="#供应链攻击" class="headerlink" title="供应链攻击"></a>供应链攻击</h4><blockquote>
+<p>针对整个供应链的各个环节进行攻击</p>
+<p>开发环节——交付环节——使用环节</p>
+</blockquote>
+<p>开发环节</p>
+<blockquote>
+<p>开发工具：Winnti、Ccleaner、Xcode</p>
+<p>源代码：Magecart、xshell</p>
+<p>厂商预留后门：惠普笔记本音频驱动内置键盘记录、Absolute防盗追踪软件</p>
+</blockquote>
+<p>交付环节</p>
+<blockquote>
+<p>捆绑下载：暗云、异鬼、火球</p>
+<p>下载劫持</p>
+<p>物流链劫持：方程式</p>
+</blockquote>
+<p>使用环节</p>
+<blockquote>
+<p>升级下载：驱动人生、ShadowHammer、NotPetya</p>
+</blockquote>
+<h4 id="RCE漏洞攻击"><a href="#RCE漏洞攻击" class="headerlink" title="RCE漏洞攻击"></a>RCE漏洞攻击</h4><blockquote>
+<p>初始攻击中的漏洞攻击，一般是远程可执行漏洞，主要是利用系统漏洞，还有第三方组件的漏洞（主要是集中在服务器上）</p>
+</blockquote>
+<p>常见漏洞</p>
+<blockquote>
+<p>系统漏洞：永恒系列、CVE-2019-0708</p>
+<p>第三方组件漏洞</p>
+</blockquote>
+<h4 id="口令爆破攻击"><a href="#口令爆破攻击" class="headerlink" title="口令爆破攻击"></a>口令爆破攻击</h4><blockquote>
+<p>弱口令爆破</p>
+<p>撞库</p>
+</blockquote>
+<h4 id="内网渗透"><a href="#内网渗透" class="headerlink" title="内网渗透"></a>内网渗透</h4><blockquote>
+<p>信息搜集：mimikatz</p>
+<p>提权和武安县维持：bypassUAC、账户权限</p>
+<p>内部渗透：端口渗透、获取域控、共享</p>
+<p>中间人攻击</p>
+</blockquote>
+<h3 id="持久性攻击"><a href="#持久性攻击" class="headerlink" title="持久性攻击"></a>持久性攻击</h3><h4 id="文件免杀"><a href="#文件免杀" class="headerlink" title="文件免杀"></a>文件免杀</h4><ol>
+<li>修改特征码</li>
+</ol>
+<blockquote>
+<p>早期杀毒软件使用特征码进行查杀，因此可通过修改特征码，以绕过安全软件报毒。</p>
+<p>特征码包括<strong>字符型特征码</strong>和<strong>代码型特征码</strong></p>
+<p><strong>字符型或者资源</strong>：直接修改（不影响功能的前提）</p>
+<p><strong>代码型</strong>：替换成等价的代码（注意字节）</p>
+</blockquote>
+<ol start="2">
+<li>PE文件加壳</li>
+</ol>
+<blockquote>
+<p><strong>壳</strong>：保护软甲不被修改或者反编译的工具，分为压缩壳和加密壳</p>
+<p>壳曾经有过一段辉煌的时光，但发展到现在都已名存实亡，目前还存货的壳主要是upx、VMProtect、SE</p>
+</blockquote>
+<ol start="3">
+<li>PE文件虚拟代码</li>
+</ol>
+<blockquote>
+<p><strong>代码虚拟化</strong>：使用一套自定义的字节码来替换程序中原有的native指令，而字节码在执行的时候又由程序中的解释器来解释执行，目前主要的虚拟工具是vmp、se</p>
+</blockquote>
+<ol start="4">
+<li>非PE文件：混淆、加密</li>
+<li>云查杀免杀</li>
+</ol>
+<blockquote>
+<p>主流的云查杀，采取hash作为特征，因此免杀方法包括<strong>修改hash</strong>、<strong>hash碰撞</strong>、<strong>对抗上传</strong></p>
+<p><strong>hash碰撞</strong>：后缀碰撞法、前缀碰撞法</p>
+<p>安全公司策略：采用md5与sha256结合</p>
+</blockquote>
+<ol start="6">
+<li>添加数字签名</li>
+</ol>
+<blockquote>
+<p>一般是购买或者盗取其他公司的数字签名证书，以此来绕过安全软件查杀。</p>
+<p>常使用组织如：Winniti、BlackTech等。</p>
+</blockquote>
+<ol start="7">
+<li>白利用</li>
+</ol>
+<blockquote>
+<p>是指利用正常程序作为载体，来加载恶意payload。</p>
+<p><strong>系统文件劫持</strong>：例如lpk.dll，在Win7后默认失效，因为Win7注册表KnownDLLs节点列出所有系统dll</p>
+<p><strong>系统文件替换</strong>：如msfte.dll、mstracer.dll等。</p>
+<p><strong>白加黑</strong>：白签名程序+恶意DLL、白签名程序+中性DLL+恶意代码</p>
+<p><strong>系统文件宿主</strong>：利用regsvr32、Certutil.exe、Pubprn.vbs远程下载、执行恶意代码。<a href="https://lobas-project.github.io" target="_blank" rel="noopener">系统文件宿主查询</a> </p>
+<p><strong>Powershell</strong>：成为攻击者最喜欢的攻击工具。加密、解密、混淆</p>
+<p><strong>WMI</strong>：Windows Management Instrumentation，又一组强大的工具集合组成。攻击者使用wmi来进行攻击，将脚本存储在本地数据库，可以枚举系统安装的杀毒案件。可以注册消费者ActiveScriptEventConsumer。</p>
+</blockquote>
+<ol start="8">
+<li>ADS数据流</li>
+</ol>
+<blockquote>
+<p><strong>NTFS交换数据流</strong>（Altermate Data Streams，简称ADS）是NTFS磁盘格式的一个特性。</p>
+<p>创建：&lt;载体文件名&gt;:&lt;ADS文件名&gt;     Echo ads create!&gt;1.txt:ads.txt</p>
+<p>查看：dir /r</p>
+</blockquote>
+<ol start="9">
+<li>B(R)ootkit</li>
+</ol>
+<blockquote>
+<p>所有在开机时比Windows内核更早加载，实现内核劫持的技术，都可以称之为Bootkit。</p>
+<p>开机通电——通电自检、BIOS自检——MBR、DPT、PBR——BootMgr——WinLoad——加载内核、Ntoskml——SMSS——1.CSRSS、WinInit——SCM、LSASS、LSM</p>
+<p>​                        2.CSRSS、Winlogon——LogonUI、UserInit、Explorer</p>
+</blockquote>
+<ol start="10">
+<li>文件感染</li>
+</ol>
+<blockquote>
+<p>通过感染文件做持久性攻击，主要感染PE文件、Office文件（宏、漏洞）、html等。</p>
+</blockquote>
+<ol start="11">
+<li>文件隐写</li>
+</ol>
+<blockquote>
+<p>把payload隐写在图片里</p>
+</blockquote>
+<ol start="12">
+<li>跨平台攻击（穿越平台攻击）</li>
+</ol>
+<h3 id="通信和数据回传"><a href="#通信和数据回传" class="headerlink" title="通信和数据回传"></a>通信和数据回传</h3><p><strong>通信</strong>：木马文件跟C&amp;C服务器通信过程，一般用来接收指令干特定的事情，如检查心跳、下发插件、收集信息等。</p>
+<p><strong>数据回传</strong>：把收集到数据传送到服务器、邮箱。常用方法有分片</p>
+<ol>
+<li>C&amp;C的迷惑性：注册一些跟正常域名类似的域名，迷惑运维人员</li>
+<li>动态域名</li>
+<li>社交、托管网站作为C2</li>
+<li>DGA（Domain Generation Algorithms，域名生成算法）是一种利用随机字符来生成C&amp;C域名，从而逃避域名黑名单检测的技术手段。</li>
+<li>使用FTP进行通信</li>
+<li>前置域名</li>
+<li>隐蔽信道</li>
+</ol>
+<blockquote>
+<p><strong>DNS隧道</strong>、HTTP隧道、ICMP隧道</p>
+</blockquote>
+<ol start="8">
+<li>图片隐藏</li>
+<li>打包收集</li>
+</ol>
+<h4 id="APT典型案例"><a href="#APT典型案例" class="headerlink" title="APT典型案例"></a>APT典型案例</h4><p>利用ATT&amp;CK建模对攻击组织建模</p>
+<hr>
+<h2 id="APT攻击的发现方法"><a href="#APT攻击的发现方法" class="headerlink" title="APT攻击的发现方法"></a>APT攻击的发现方法</h2><p>​    APT攻击的发现，主要分为甲方和乙方两个视角。</p>
+<blockquote>
+<p>甲方：部门、企业</p>
+<p>大甲方：CERT、测评中心等</p>
+<p>乙方：安全服务提供商</p>
+</blockquote>
+<h3 id="甲方视角"><a href="#甲方视角" class="headerlink" title="甲方视角"></a>甲方视角</h3><ol>
+<li>发现APT攻击</li>
+</ol>
+<ul>
+<li>异常<ul>
+<li>非法邮件</li>
+<li>计算机异常</li>
+<li>防火墙告警</li>
+<li>被勒索</li>
+</ul>
+</li>
+<li>泄露<ul>
+<li>机密信息在外网或暗网传播</li>
+<li>如游戏公司，游戏被人建私服</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><p>定位源头</p>
+</li>
+<li><p>提取样本</p>
+</li>
+<li>主动发现</li>
+</ol>
+<ul>
+<li>ids/ips+威胁情报<ul>
+<li>如境外链接；</li>
+<li>敏感信息外传</li>
+<li>端口流量异常</li>
+</ul>
+</li>
+</ul>
+<h3 id="乙方视角"><a href="#乙方视角" class="headerlink" title="乙方视角"></a>乙方视角</h3><ol>
+<li><p>特征</p>
+<p>包含流量特征和二进制文件特征</p>
+</li>
+<li><p>基于行为的监控</p>
+</li>
+</ol>
+<ul>
+<li><p>单一规则</p>
+</li>
+<li><p>TTPS（行为库）</p>
+<ul>
+<li>NSIS文件</li>
+<li>NSIS触发下载</li>
+<li>NSIS下载7Z</li>
+<li>7Z解压后，又PUNTO白加黑</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><p>用户画像</p>
+<p>对用户画像，高敏感用户里的威胁大概率是APT攻击</p>
+</li>
+<li><p>基于邮件监控</p>
+<ul>
+<li>迷惑性邮件地址</li>
+<li>邮箱附件名称为敏感内容</li>
+</ul>
+</li>
+<li><p>基于诱饵内容</p>
+<p>诱饵为恶意且内容为政治相关或者敏感内容的</p>
+</li>
+<li><p>基于0day的监控</p>
+<ul>
+<li><p>基于漏洞特征</p>
+</li>
+<li><p>基于shellcode监控</p>
+</li>
+<li><p>全补丁+行为</p>
+</li>
+<li><p>全补丁+EMET</p>
+</li>
+</ul>
+</li>
+<li><p>基于入侵的监控</p>
+</li>
+<li><p>基于大数据挖掘</p>
+<p>基于文件相似性、域名相似性、DGA等挖掘</p>
+</li>
+</ol>
+<h3 id="APT攻击发现事例"><a href="#APT攻击发现事例" class="headerlink" title="APT攻击发现事例"></a>APT攻击发现事例</h3><p>大数据——可疑URL、IP地址、文件——智能分析系统——APT组织&amp;画像、受害者范围</p>
+<p><strong>智能分析系统</strong></p>
+<ul>
+<li><p>0day检测</p>
+</li>
+<li><p>聚类分析（动态+静态）</p>
+</li>
+<li><p>社团图谱分析</p>
+</li>
+<li><p>专家特征</p>
+</li>
+<li><p>TTPs碰撞</p>
+</li>
+<li><p>……</p>
+</li>
+</ul>
+<hr>
+<h2 id="APT攻击的分析和溯源"><a href="#APT攻击的分析和溯源" class="headerlink" title="APT攻击的分析和溯源"></a>APT攻击的分析和溯源</h2><h3 id="分析环境搭建"><a href="#分析环境搭建" class="headerlink" title="分析环境搭建"></a>分析环境搭建</h3><ol>
+<li>虚拟机环境：VMWare+Win7</li>
+<li>动态监控工具：火绒剑、Malware Defender、SSM（XP）</li>
+<li>网络分析：Wireshark、科莱、Filddler等</li>
+<li>检测：PCHunter、Process Explorer、AutoRun等</li>
+</ol>
+<h2 id="APT攻击的检测和防御"><a href="#APT攻击的检测和防御" class="headerlink" title="APT攻击的检测和防御"></a>APT攻击的检测和防御</h2>
       
 
       
@@ -191,11 +635,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/Blog/categories/programming//" class="article-tag-list-link color3">编程</a>
+        			<a href="/Blog/categories/网络安全//" class="article-tag-list-link color5">网络安全</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/Blog/categories/programming/Hexo//" class="article-tag-list-link color5">Hexo</a>
+        			<a href="/Blog/categories/网络安全/APT//" class="article-tag-list-link color4">APT</a>
         		</li>
       		
 		</ul>
@@ -203,16 +647,24 @@ var _hmt = _hmt || [];
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/posts/programming/Hexo/2018-07-03-Hexo文档.html">阅读全文 >></a>
-        </p>
-      
 
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/Blog/posts/programming/Hexo/2018-07-03-Hexo文档.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo文档</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -227,93 +679,34 @@ var _hmt = _hmt || [];
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-我的自白" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/posts/life/2018-07-01-我的自白.html">我的自白</a>
-    </h1>
-  
-
-        
-        <a href="/Blog/posts/life/2018-07-01-我的自白.html" class="archive-article-date">
-  	<time datetime="2018-07-01T08:59:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="关于过去"><a href="#关于过去" class="headerlink" title="关于过去"></a>关于过去</h1><p>当年迷迷糊糊，没有坚持自己的意见，选择了不喜欢的专业，十年过去了，仍然无法爱上这个岗位。</p>
-<p>过去的十年里，自己一直利用业余时间学习计算机技术。大概学了网络技术、网站制作、数据库Oracle、C++、Python、多媒体制作等。</p>
-<p>现在回想起来，非常感激自己这些年的努力，时间没有虚度。</p>
-<hr>
-        
-          <a class="article-more-a" href="/Blog/posts/life/2018-07-01-我的自白.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/Blog/categories/life//" class="article-tag-list-link color3">生活</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/posts/life/2018-07-01-我的自白.html">阅读全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#APT攻击简介"><span class="toc-number">1.</span> <span class="toc-text">APT攻击简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#APT攻击的定义"><span class="toc-number">1.1.</span> <span class="toc-text">APT攻击的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#APT攻击的目的"><span class="toc-number">1.2.</span> <span class="toc-text">APT攻击的目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#APT攻击组织"><span class="toc-number">1.3.</span> <span class="toc-text">APT攻击组织</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#APT攻击组织的军火库"><span class="toc-number">1.4.</span> <span class="toc-text">APT攻击组织的军火库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#APT攻击的描述"><span class="toc-number">1.5.</span> <span class="toc-text">APT攻击的描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#APT情报来源"><span class="toc-number">1.6.</span> <span class="toc-text">APT情报来源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#APT攻击带来的挑战"><span class="toc-number">1.7.</span> <span class="toc-text">APT攻击带来的挑战</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#APT攻击常用方法"><span class="toc-number">2.</span> <span class="toc-text">APT攻击常用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#案例：希拉里邮件门"><span class="toc-number">2.1.</span> <span class="toc-text">案例：希拉里邮件门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#攻击战术"><span class="toc-number">2.2.</span> <span class="toc-text">攻击战术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信息侦察"><span class="toc-number">2.3.</span> <span class="toc-text">信息侦察</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#武器构建"><span class="toc-number">2.4.</span> <span class="toc-text">武器构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始攻击"><span class="toc-number">2.5.</span> <span class="toc-text">初始攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#鱼叉攻击"><span class="toc-number">2.5.1.</span> <span class="toc-text">鱼叉攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#水坑攻击"><span class="toc-number">2.5.2.</span> <span class="toc-text">水坑攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#供应链攻击"><span class="toc-number">2.5.3.</span> <span class="toc-text">供应链攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RCE漏洞攻击"><span class="toc-number">2.5.4.</span> <span class="toc-text">RCE漏洞攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#口令爆破攻击"><span class="toc-number">2.5.5.</span> <span class="toc-text">口令爆破攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内网渗透"><span class="toc-number">2.5.6.</span> <span class="toc-text">内网渗透</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#持久性攻击"><span class="toc-number">2.6.</span> <span class="toc-text">持久性攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#文件免杀"><span class="toc-number">2.6.1.</span> <span class="toc-text">文件免杀</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通信和数据回传"><span class="toc-number">2.7.</span> <span class="toc-text">通信和数据回传</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#APT典型案例"><span class="toc-number">2.7.1.</span> <span class="toc-text">APT典型案例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#APT攻击的发现方法"><span class="toc-number">3.</span> <span class="toc-text">APT攻击的发现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#甲方视角"><span class="toc-number">3.1.</span> <span class="toc-text">甲方视角</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#乙方视角"><span class="toc-number">3.2.</span> <span class="toc-text">乙方视角</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#APT攻击发现事例"><span class="toc-number">3.3.</span> <span class="toc-text">APT攻击发现事例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#APT攻击的分析和溯源"><span class="toc-number">4.</span> <span class="toc-text">APT攻击的分析和溯源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分析环境搭建"><span class="toc-number">4.1.</span> <span class="toc-text">分析环境搭建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#APT攻击的检测和防御"><span class="toc-number">5.</span> <span class="toc-text">APT攻击的检测和防御</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
+  
+  
+  
 
   
+
   
+
+  
+
 
           </div>
         </div>
@@ -335,8 +728,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
