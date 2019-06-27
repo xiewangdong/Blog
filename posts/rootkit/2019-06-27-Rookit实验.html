@@ -16,18 +16,18 @@
 <meta property="og:site_name" content="熊窝">
 <meta property="og:description" content="实验目的 掌握windows rootkit的基本工作原理，熟练掌握并使用ssdt hook、IRP hook、DKOM等技术； 掌握基本的windows核心编程，能够编写、调试windows驱动； 掌握rootkit的基本使用方法。  实验内容 开源windows kernel rootkit zwhawk的工作原理、编译与调试； zwhawk代码的修改，实现其隐藏进程的功能。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="d:/Blog/source/assets/img/1.png">
-<meta property="og:image" content="d:/Blog/source/assets/img/2.png">
-<meta property="og:image" content="d:/Blog/source/assets/img/3.png">
-<meta property="og:image" content="d:/Blog/source/assets/img/4.png">
-<meta property="og:image" content="d:/Blog/source/assets/img/6.png">
-<meta property="og:image" content="d:/Blog/source/assets/img/5.png">
-<meta property="og:image" content="d:/Blog/source/assets/img/7.png">
-<meta property="og:updated_time" content="2019-06-27T13:05:14.903Z">
+<meta property="og:image" content="http://xiewangdong.coding.me/Blog/Blog/posts/rootkit/2019-06-27-Rookit实验.htm/1.png">
+<meta property="og:image" content="http://xiewangdong.coding.me/Blog/Blog/posts/rootkit/2019-06-27-Rookit实验.htm/2.png">
+<meta property="og:image" content="http://xiewangdong.coding.me/Blog/Blog/posts/rootkit/2019-06-27-Rookit实验.htm/3.png">
+<meta property="og:image" content="http://xiewangdong.coding.me/Blog/Blog/posts/rootkit/2019-06-27-Rookit实验.htm/4.png">
+<meta property="og:image" content="http://xiewangdong.coding.me/Blog/Blog/posts/rootkit/2019-06-27-Rookit实验.htm/6.png">
+<meta property="og:image" content="http://xiewangdong.coding.me/Blog/Blog/posts/rootkit/2019-06-27-Rookit实验.htm/5.png">
+<meta property="og:image" content="http://xiewangdong.coding.me/Blog/Blog/posts/rootkit/2019-06-27-Rookit实验.htm/7.png">
+<meta property="og:updated_time" content="2019-06-27T13:49:45.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rookit实验">
 <meta name="twitter:description" content="实验目的 掌握windows rootkit的基本工作原理，熟练掌握并使用ssdt hook、IRP hook、DKOM等技术； 掌握基本的windows核心编程，能够编写、调试windows驱动； 掌握rootkit的基本使用方法。  实验内容 开源windows kernel rootkit zwhawk的工作原理、编译与调试； zwhawk代码的修改，实现其隐藏进程的功能。">
-<meta name="twitter:image" content="d:/Blog/source/assets/img/1.png">
+<meta name="twitter:image" content="http://xiewangdong.coding.me/Blog/Blog/posts/rootkit/2019-06-27-Rookit实验.htm/1.png">
   
     <link rel="alternative" href="/atom.xml" title="熊窝" type="application/atom+xml">
   
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
 
         
         <a href="/Blog/posts/rootkit/2019-06-27-Rookit实验.html" class="archive-article-date">
-  	<time datetime="2019-06-27T11:07:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-27</time>
+  	<time datetime="2019-06-27T13:45:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-27</time>
 </a>
         
       </header>
@@ -207,7 +207,7 @@ var _hmt = _hmt || [];
 <ul>
 <li>在虚拟机中，将 <code>Win7 x86 Checked Build Environment</code>控制台路径切换至<code>rootkit</code>目录，运行<code>build</code>命令，生成<code>zwhawk.sys</code>驱动。</li>
 </ul>
-<p><img src="D:\Blog\source\assets\img\1.png" alt=""></p>
+<p><img src="/Blog/Blog/posts/rootkit/2019-06-27-Rookit实验.htm/1.png" alt=""></p>
 <h2 id="构建Dropper"><a href="#构建Dropper" class="headerlink" title="构建Dropper"></a>构建Dropper</h2><ul>
 <li>使用VS2019新建空白项目<code>Dropper</code>，将<code>zwhawk</code>源码中<code>dropper</code>文件夹下代码文件添加至<code>Dropper</code>项目中；</li>
 <li>修改<code>Dropper</code>项目<code>属性</code>中，<code>字符集</code>设置为<code>使用 Unicode 字符集</code>（注意：Debug、Release均修改）；</li>
@@ -229,11 +229,11 @@ var _hmt = _hmt || [];
 <li>开机F8，选择<code>禁用驱动签名强制启动</code>；</li>
 <li>使用<code>DriverMonitor</code>加载<code>zwhawk.sys</code>驱动；</li>
 </ul>
-<p><img src="D:\Blog\source\assets\img\2.png" alt=""></p>
+<p><img src="/Blog/Blog/posts/rootkit/2019-06-27-Rookit实验.htm/2.png" alt=""></p>
 <ul>
 <li>运行<code>dropper.exe</code>，等待连接</li>
 </ul>
-<p><img src="D:\Blog\source\assets\img\3.png" alt=""></p>
+<p><img src="/Blog/Blog/posts/rootkit/2019-06-27-Rookit实验.htm/3.png" alt=""></p>
 <h3 id="物理机"><a href="#物理机" class="headerlink" title="物理机"></a>物理机</h3><ul>
 <li>运行<code>client.exe</code></li>
 <li>输入<code>$help</code>查看可用命令；</li>
@@ -246,15 +246,15 @@ var _hmt = _hmt || [];
 <ul>
 <li>输入<code>$screenshot</code>，回车，截取虚拟机屏幕</li>
 </ul>
-<p><img src="D:\Blog\source\assets\img\4.png" alt=""></p>
+<p><img src="/Blog/Blog/posts/rootkit/2019-06-27-Rookit实验.htm/4.png" alt=""></p>
 <ul>
 <li>输入<code>$ps</code>，回车，查看虚拟机进程信息</li>
 </ul>
-<p><img src="D:\Blog\source\assets\img\6.png" alt=""></p>
+<p><img src="/Blog/Blog/posts/rootkit/2019-06-27-Rookit实验.htm/6.png" alt=""></p>
 <ul>
 <li>从上一条命令得知<code>Dropper.exe</code>的PID为<code>4072</code>，虚拟机任务管理器中亦可看到<code>Dropper.exe</code>进程</li>
 </ul>
-<p><img src="D:\Blog\source\assets\img\5.png" alt=""></p>
+<p><img src="/Blog/Blog/posts/rootkit/2019-06-27-Rookit实验.htm/5.png" alt=""></p>
 <ul>
 <li>输入命令<code>$phide 4072</code>,回车</li>
 </ul>
@@ -262,7 +262,7 @@ var _hmt = _hmt || [];
 <ul>
 <li>在虚拟机查看任务管理器，<code>Dropper.exe</code>已隐藏</li>
 </ul>
-<p><img src="D:\Blog\source\assets\img\7.png" alt=""></p>
+<p><img src="/Blog/Blog/posts/rootkit/2019-06-27-Rookit实验.htm/7.png" alt=""></p>
 
       
 
