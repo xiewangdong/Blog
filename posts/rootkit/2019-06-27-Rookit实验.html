@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://xiewangdong.coding.me/Blog">
   <title>Rookit实验 | 熊窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="实验目的 掌握windows rootkit的基本工作原理，熟练掌握并使用ssdt hook、IRP hook、DKOM等技术； 掌握基本的windows核心编程，能够编写、调试windows驱动； 掌握rootkit的基本使用方法。  实验内容 开源windows kernel rootkit zwhawk的工作原理、编译与调试； zwhawk代码的修改，实现其隐藏进程的功能。  实验环境 物理">
+  <meta name="description" content="实验目的 掌握windows rootkit的基本工作原理，熟练掌握并使用ssdt hook、IRP hook、DKOM等技术； 掌握基本的windows核心编程，能够编写、调试windows驱动； 掌握rootkit的基本使用方法。  实验内容 开源windows kernel rootkit zwhawk的工作原理、编译与调试； zwhawk代码的修改，实现其隐藏进程的功能。">
 <meta name="keywords" content="Qt WPF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Rookit实验">
 <meta property="og:url" content="http://xiewangdong.coding.me/Blog/posts/rootkit/2019-06-27-Rookit实验.html">
 <meta property="og:site_name" content="熊窝">
-<meta property="og:description" content="实验目的 掌握windows rootkit的基本工作原理，熟练掌握并使用ssdt hook、IRP hook、DKOM等技术； 掌握基本的windows核心编程，能够编写、调试windows驱动； 掌握rootkit的基本使用方法。  实验内容 开源windows kernel rootkit zwhawk的工作原理、编译与调试； zwhawk代码的修改，实现其隐藏进程的功能。  实验环境 物理">
+<meta property="og:description" content="实验目的 掌握windows rootkit的基本工作原理，熟练掌握并使用ssdt hook、IRP hook、DKOM等技术； 掌握基本的windows核心编程，能够编写、调试windows驱动； 掌握rootkit的基本使用方法。  实验内容 开源windows kernel rootkit zwhawk的工作原理、编译与调试； zwhawk代码的修改，实现其隐藏进程的功能。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="d:/Blog/source/assets/img/1.png">
 <meta property="og:image" content="d:/Blog/source/assets/img/2.png">
@@ -23,10 +23,10 @@
 <meta property="og:image" content="d:/Blog/source/assets/img/6.png">
 <meta property="og:image" content="d:/Blog/source/assets/img/5.png">
 <meta property="og:image" content="d:/Blog/source/assets/img/7.png">
-<meta property="og:updated_time" content="2019-06-27T13:02:21.297Z">
+<meta property="og:updated_time" content="2019-06-27T13:05:14.903Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rookit实验">
-<meta name="twitter:description" content="实验目的 掌握windows rootkit的基本工作原理，熟练掌握并使用ssdt hook、IRP hook、DKOM等技术； 掌握基本的windows核心编程，能够编写、调试windows驱动； 掌握rootkit的基本使用方法。  实验内容 开源windows kernel rootkit zwhawk的工作原理、编译与调试； zwhawk代码的修改，实现其隐藏进程的功能。  实验环境 物理">
+<meta name="twitter:description" content="实验目的 掌握windows rootkit的基本工作原理，熟练掌握并使用ssdt hook、IRP hook、DKOM等技术； 掌握基本的windows核心编程，能够编写、调试windows驱动； 掌握rootkit的基本使用方法。  实验内容 开源windows kernel rootkit zwhawk的工作原理、编译与调试； zwhawk代码的修改，实现其隐藏进程的功能。">
 <meta name="twitter:image" content="d:/Blog/source/assets/img/1.png">
   
     <link rel="alternative" href="/atom.xml" title="熊窝" type="application/atom+xml">
@@ -190,6 +190,7 @@ var _hmt = _hmt || [];
 <li>开源windows kernel rootkit zwhawk的工作原理、编译与调试；</li>
 <li>zwhawk代码的修改，实现其隐藏进程的功能。</li>
 </ol>
+<a id="more"></a>
 <h1 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h1><ol>
 <li>物理机：Windows 10 x64、Visual Studio 2019 Community</li>
 <li>虚拟机：Windows 7 x86、WDK 7.0.1、zwhawk源码</li>
