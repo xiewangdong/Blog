@@ -166,6 +166,116 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Intel-x86-CPU系列寄存器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Blog/posts/programming/2019-07-01-Intel-x86-CPU系列寄存器.html">Intel_x86_CPU系列寄存器</a>
+    </h1>
+  
+
+        
+        <a href="/Blog/posts/programming/2019-07-01-Intel-x86-CPU系列寄存器.html" class="archive-article-date">
+  	<time datetime="2019-07-01T14:37:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h1 id="32位CPU系统级寄存器和数据结构"><a href="#32位CPU系统级寄存器和数据结构" class="headerlink" title="32位CPU系统级寄存器和数据结构"></a>32位CPU系统级寄存器和数据结构</h1><p><img src="2019-07-01-Intel-x86-CPU系列寄存器/1.png" alt=""></p>
+<h1 id="寄存器分类介绍"><a href="#寄存器分类介绍" class="headerlink" title="寄存器分类介绍"></a>寄存器分类介绍</h1><ul>
+<li>通用寄存器：8个，分别为<code>EAX</code>,<code>EBX</code>,<code>ECX</code>,<code>EDX</code>,<code>ESP</code>,<code>EBP</code>,<code>ESI</code>,<code>EDI</code></li>
+<li>标志寄存器：1个，<code>EFLAGS</code></li>
+<li>控制寄存器：5个，分别为<code>CR0</code>-<code>CR4</code></li>
+<li>调试寄存器：8个，分别为<code>DR0</code>-<code>DR7</code></li>
+<li>系统地址寄存器:4个，<code>GDTR</code>、<code>IDTR</code>、<code>LDTR</code>和<code>TR</code></li>
+<li>16位段寄存器：6个，分别为<code>CS</code>,<code>DS</code>,<code>ES</code>,<code>FS</code>,<code>GS</code>,<code>SS</code></li>
+<li>其他寄存器：<code>EIP</code>、<code>TSC</code>等</li>
+</ul>
+<h1 id="寄存器详解"><a href="#寄存器详解" class="headerlink" title="寄存器详解"></a>寄存器详解</h1><h2 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h2><p><strong>EAX,EBX,ECX,EDX,ESP,EBP,ESI,EDI</strong></p>
+<ul>
+<li>ECX、ESI和EDI在串循环操作中分别用作计数器、源和目标；</li>
+<li>EBP和ESP主要用来维护栈，ESP通常指向栈的顶部，EBP指向当前栈帧的起始地址；</li>
+<li>EAX可作为累加器用于乘法、除法及一些调整指令，对于这些指令，累加器常表现为隐含形式；</li>
+<li>EAX寄存器也可以保存被访问存储器单元的偏移地址；</li>
+<li>EBX常用于地址指针，保存被访问存储器单元的偏移地址；</li>
+<li>ECX经常用作计数器，用于保存指令的 计数值；</li>
+<li>ECX寄存器也可以保存访问数据所在存储器单元的偏移地址，用于计数的指令包括重复的串指令、移位指令和循环指令。移位指令用CL计数，重复的串 指令用CX计数，循环指令用CX或ECX计数；</li>
+<li>EDX常与EAX配合，用于保存乘法形成的部分结果，或者除法操作前的被除数，它还可以保存寻址存储器数据；</li>
+<li>EBP和ESP是32位寄存器，也可作为16位寄存器BP, SP使用，常用于椎栈操作；</li>
+<li>EDI和ESI常用于串操作，EDI用于寻址目标数据串，ESI用于寻址源数据串。</li>
+</ul>
+<h2 id="标志寄存器"><a href="#标志寄存器" class="headerlink" title="标志寄存器"></a>标志寄存器</h2><p><strong>EFLAGS</strong></p>
+<p>控制任务状态和模式切换、中断处理、指令追踪和访问权限控制。寄存器中的标志位需要特权指令(特权指令:运行在内核态下的代码)代码才可以修改。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">寄存器 cpu</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/Blog/categories/programming//" class="article-tag-list-link color2">programming</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Blog/posts/programming/2019-07-01-Intel-x86-CPU系列寄存器.html">阅读全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-WinRar目录穿越漏洞利用实验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -892,11 +1002,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WinRar</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">寄存器 cpu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WinRar</a>
               </li>
              
               <li class="article-tag-list-item">
