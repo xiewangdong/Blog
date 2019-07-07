@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://xiewangdong.coding.me/Blog">
   <title>32位汇编总结 | 熊窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="寄存器主要寄存器如下图所示：  X86处理器中有8个32位的通用寄存器。由于历史的原因，EAX通常用于计算，ECX通常用于循环变量计数。ESP和EBP有专门用途，ESP指示栈指针(用于指示栈顶位置)，而EBP则是基址指针（用于指示子程序或函数调用的基址指针）。如图中所示，EAX、EBX、ECX和EDX的前两个高位字节和后两个低位字节可以独立使用，其中两位低字节又被独立分为H和L部分，这样做的原因">
+  <meta name="description" content="寄存器主要寄存器如下图所示：">
 <meta name="keywords" content="汇编">
 <meta property="og:type" content="article">
 <meta property="og:title" content="32位汇编总结">
 <meta property="og:url" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-06-15-32位汇编总结.html">
 <meta property="og:site_name" content="熊窝">
-<meta property="og:description" content="寄存器主要寄存器如下图所示：  X86处理器中有8个32位的通用寄存器。由于历史的原因，EAX通常用于计算，ECX通常用于循环变量计数。ESP和EBP有专门用途，ESP指示栈指针(用于指示栈顶位置)，而EBP则是基址指针（用于指示子程序或函数调用的基址指针）。如图中所示，EAX、EBX、ECX和EDX的前两个高位字节和后两个低位字节可以独立使用，其中两位低字节又被独立分为H和L部分，这样做的原因">
+<meta property="og:description" content="寄存器主要寄存器如下图所示：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-06-15-32位汇编总结/1.png">
 <meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-06-15-32位汇编总结/2.png">
@@ -22,10 +22,10 @@
 <meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-06-15-32位汇编总结/4.png">
 <meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-06-15-32位汇编总结/5.png">
 <meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-06-15-32位汇编总结/6.png">
-<meta property="og:updated_time" content="2019-06-29T06:55:50.607Z">
+<meta property="og:updated_time" content="2019-07-04T12:02:44.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="32位汇编总结">
-<meta name="twitter:description" content="寄存器主要寄存器如下图所示：  X86处理器中有8个32位的通用寄存器。由于历史的原因，EAX通常用于计算，ECX通常用于循环变量计数。ESP和EBP有专门用途，ESP指示栈指针(用于指示栈顶位置)，而EBP则是基址指针（用于指示子程序或函数调用的基址指针）。如图中所示，EAX、EBX、ECX和EDX的前两个高位字节和后两个低位字节可以独立使用，其中两位低字节又被独立分为H和L部分，这样做的原因">
+<meta name="twitter:description" content="寄存器主要寄存器如下图所示：">
 <meta name="twitter:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-06-15-32位汇编总结/1.png">
   
     <link rel="alternative" href="/atom.xml" title="熊窝" type="application/atom+xml">
@@ -192,8 +192,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>主要寄存器如下图所示：</p>
+        <h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>主要寄存器如下图所示：</p>
+<a id="more"></a>
 <p><img src="2019-06-15-32位汇编总结/1.png" alt=""></p>
 <p>X86处理器中有8个32位的通用寄存器。由于历史的原因，EAX通常用于计算，ECX通常用于循环变量计数。ESP和EBP有专门用途，ESP指示栈指针(用于指示栈顶位置)，而EBP则是基址指针（用于指示子程序或函数调用的基址指针）。如图中所示，EAX、EBX、ECX和EDX的前两个高位字节和后两个低位字节可以独立使用，其中两位低字节又被独立分为H和L部分，这样做的原因主要是考虑兼容16位的程序，具体兼容匹配细节请查阅相关文献。</p>
 <p><strong>应用寄存器时，其名称大小写是不敏感的，如EAX和eax没有区别。</strong></p>
@@ -484,11 +484,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WinRar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WinRar</a>
+                <a href="javascript:void(0)" class="js-tag color5">shellcode</a>
               </li>
              
               <li class="article-tag-list-item">
