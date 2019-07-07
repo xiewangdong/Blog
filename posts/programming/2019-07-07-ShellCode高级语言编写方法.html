@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="http://xiewangdong.coding.me/Blog">
   <title>ShellCode高级语言编写方法 | 熊窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="实验目的学习掌握ShellCode载荷生成框架的编写方法 实验内容参照shellcode载荷生成框架Downloaderx86，改写RemoteCMD项目代码，使之能生成Shellcode。 实验环境 Windows 7 x86   Visual Studio 2010   实验工具 Downloaderx86项目源码  RemoteCMD项目源码   源码分析DownloaderDownload">
+  <meta name="description" content="实验目的学习掌握ShellCode载荷生成框架的编写方法">
 <meta name="keywords" content="shellcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ShellCode高级语言编写方法">
 <meta property="og:url" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-07-07-ShellCode高级语言编写方法.html">
 <meta property="og:site_name" content="熊窝">
-<meta property="og:description" content="实验目的学习掌握ShellCode载荷生成框架的编写方法 实验内容参照shellcode载荷生成框架Downloaderx86，改写RemoteCMD项目代码，使之能生成Shellcode。 实验环境 Windows 7 x86   Visual Studio 2010   实验工具 Downloaderx86项目源码  RemoteCMD项目源码   源码分析DownloaderDownload">
+<meta property="og:description" content="实验目的学习掌握ShellCode载荷生成框架的编写方法">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-07-07-ShellCode高级语言编写方法/1.png">
 <meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-07-07-ShellCode高级语言编写方法/2.png">
 <meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-07-07-ShellCode高级语言编写方法/3.png">
 <meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-07-07-ShellCode高级语言编写方法/4.png">
-<meta property="og:updated_time" content="2019-07-07T10:12:16.402Z">
+<meta property="og:updated_time" content="2019-07-07T10:17:24.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ShellCode高级语言编写方法">
-<meta name="twitter:description" content="实验目的学习掌握ShellCode载荷生成框架的编写方法 实验内容参照shellcode载荷生成框架Downloaderx86，改写RemoteCMD项目代码，使之能生成Shellcode。 实验环境 Windows 7 x86   Visual Studio 2010   实验工具 Downloaderx86项目源码  RemoteCMD项目源码   源码分析DownloaderDownload">
+<meta name="twitter:description" content="实验目的学习掌握ShellCode载荷生成框架的编写方法">
 <meta name="twitter:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-07-07-ShellCode高级语言编写方法/1.png">
   
     <link rel="alternative" href="/atom.xml" title="熊窝" type="application/atom+xml">
@@ -191,6 +191,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h1><p>学习掌握ShellCode载荷生成框架的编写方法</p>
+<a id="more"></a>
 <h1 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h1><p>参照shellcode载荷生成框架<code>Downloaderx86</code>，改写<code>RemoteCMD</code>项目代码，使之能生成Shellcode。</p>
 <h1 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h1><ul>
 <li><p>Windows 7 x86 </p>
@@ -482,11 +483,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">shellcode</a>
+                <a href="javascript:void(0)" class="js-tag color3">rootkit</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">rootkit</a>
+                <a href="javascript:void(0)" class="js-tag color5">shellcode</a>
               </li>
              
               <li class="article-tag-list-item">
