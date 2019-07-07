@@ -6,19 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://xiewangdong.coding.me/Blog">
-  <title>Archives | 熊窝</title>
+  <title>远控获取进程列表编程实验 | 熊窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="小熊开大">
-<meta name="keywords" content="Qt WPF">
-<meta property="og:type" content="website">
-<meta property="og:title" content="熊窝">
-<meta property="og:url" content="http://xiewangdong.coding.me/Blog/archives/index.html">
+  <meta name="description" content="实验目的学习理解远控软件的工作原理。">
+<meta name="keywords" content="Qt socket">
+<meta property="og:type" content="article">
+<meta property="og:title" content="远控获取进程列表编程实验">
+<meta property="og:url" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-07-07-远控获取进程列表编程实验.html">
 <meta property="og:site_name" content="熊窝">
-<meta property="og:description" content="小熊开大">
+<meta property="og:description" content="实验目的学习理解远控软件的工作原理。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-07-07-远控获取进程列表编程实验/1.png">
+<meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-07-07-远控获取进程列表编程实验/2.png">
+<meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-07-07-远控获取进程列表编程实验/3.png">
+<meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-07-07-远控获取进程列表编程实验/5.png">
+<meta property="og:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-07-07-远控获取进程列表编程实验/4.png">
+<meta property="og:updated_time" content="2019-07-07T16:17:16.047Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="熊窝">
-<meta name="twitter:description" content="小熊开大">
+<meta name="twitter:title" content="远控获取进程列表编程实验">
+<meta name="twitter:description" content="实验目的学习理解远控软件的工作原理。">
+<meta name="twitter:image" content="http://xiewangdong.coding.me/Blog/posts/programming/2019-07-07-远控获取进程列表编程实验/1.png">
   
     <link rel="alternative" href="/atom.xml" title="熊窝" type="application/atom+xml">
   
@@ -164,16 +171,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-远控获取进程列表编程实验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-远控获取进程列表编程实验" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/posts/programming/2019-07-07-远控获取进程列表编程实验.html">远控获取进程列表编程实验</a>
+    <h1 class="article-title" itemprop="name">
+      远控获取进程列表编程实验
     </h1>
   
 
@@ -187,9 +192,42 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h1><p>学习理解远控软件的工作原理。</p>
-        
-          <a class="article-more-a" href="/Blog/posts/programming/2019-07-07-远控获取进程列表编程实验.html#more">more >></a>
-        
+<a id="more"></a>
+<h1 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h1><p>编程实现C/S架构软件，服务端可获取客户端进程列表。</p>
+<h1 id="编程环境"><a href="#编程环境" class="headerlink" title="编程环境"></a>编程环境</h1><ul>
+<li>Windows 10 </li>
+<li>Visual 2019</li>
+<li>Qt 5.10</li>
+</ul>
+<h1 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h1><ul>
+<li>服务端：Windows 10</li>
+<li>客户端：Windows 10</li>
+</ul>
+<h1 id="编程思路"><a href="#编程思路" class="headerlink" title="编程思路"></a>编程思路</h1><h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><ul>
+<li>采用Qt Network模块中的QTcpServer类，在Windows平台下内部使用WSAAsyncSelect来实现IO复用；</li>
+<li>收到客户端连接请求后，在列表中显示客户端基本信息；</li>
+<li>需查看某一客户端进程信息时，选择列表中的客户端，点击<strong>获取进程列表</strong>按钮即可。</li>
+<li>项目文件结构如下：</li>
+</ul>
+<p><img src="2019-07-07-远控获取进程列表编程实验/1.png" alt=""></p>
+<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><ul>
+<li>主动向服务端发起connect；</li>
+<li>接收服务端指令，按要求发送进程信息；</li>
+<li>调用Windows API函数CreateToolhelp32Snapshot，遍历进程信息，打包发送给服务端。</li>
+<li>项目文件结构如下：</li>
+</ul>
+<p><img src="2019-07-07-远控获取进程列表编程实验/2.png" alt=""></p>
+<h2 id="通信约定"><a href="#通信约定" class="headerlink" title="通信约定"></a>通信约定</h2><ul>
+<li>使用Json文件格式组织通信数据；</li>
+<li>利用QJsonDocument类将内容序列化，以便于网络传输；收到数据后同样利用该类进行反序列化，以便读取数据</li>
+</ul>
+<h1 id="软件验证"><a href="#软件验证" class="headerlink" title="软件验证"></a>软件验证</h1><ul>
+<li>生成服务端Server.exe和客户端Client.exe，并运行，效果如下图：</li>
+</ul>
+<p><img src="2019-07-07-远控获取进程列表编程实验/3.png" alt="服务端"></p>
+<p><img src="2019-07-07-远控获取进程列表编程实验/5.png" alt="获取进程列表窗口"></p>
+<p><img src="2019-07-07-远控获取进程列表编程实验/4.png" alt="客户端"></p>
+
       
 
       
@@ -222,16 +260,24 @@ var _hmt = _hmt || [];
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/posts/programming/2019-07-07-远控获取进程列表编程实验.html">阅读全文 >></a>
-        </p>
-      
 
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/Blog/posts/programming/2019-07-07-ShellCode高级语言编写方法.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ShellCode高级语言编写方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -246,643 +292,34 @@ var _hmt = _hmt || [];
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ShellCode高级语言编写方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/posts/programming/2019-07-07-ShellCode高级语言编写方法.html">ShellCode高级语言编写方法</a>
-    </h1>
-  
-
-        
-        <a href="/Blog/posts/programming/2019-07-07-ShellCode高级语言编写方法.html" class="archive-article-date">
-  	<time datetime="2019-07-07T07:36:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h1><p>学习掌握ShellCode载荷生成框架的编写方法</p>
-        
-          <a class="article-more-a" href="/Blog/posts/programming/2019-07-07-ShellCode高级语言编写方法.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">shellcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/Blog/categories/programming//" class="article-tag-list-link color2">programming</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/posts/programming/2019-07-07-ShellCode高级语言编写方法.html">阅读全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#实验目的"><span class="toc-number">1.</span> <span class="toc-text">实验目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验内容"><span class="toc-number">2.</span> <span class="toc-text">实验内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编程环境"><span class="toc-number">3.</span> <span class="toc-text">编程环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验环境"><span class="toc-number">4.</span> <span class="toc-text">实验环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编程思路"><span class="toc-number">5.</span> <span class="toc-text">编程思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#服务端"><span class="toc-number">5.1.</span> <span class="toc-text">服务端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#客户端"><span class="toc-number">5.2.</span> <span class="toc-text">客户端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通信约定"><span class="toc-number">5.3.</span> <span class="toc-text">通信约定</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#软件验证"><span class="toc-number">6.</span> <span class="toc-text">软件验证</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-PCShare-SSH" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/posts/programming/2019-07-03-PCShare-SSH.html">SSH跳板回连实验</a>
-    </h1>
-  
-
-        
-        <a href="/Blog/posts/programming/2019-07-03-PCShare-SSH.html" class="archive-article-date">
-  	<time datetime="2019-07-03T06:24:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h1><p>学习理解SSH端口转发功能。</p>
-        
-          <a class="article-more-a" href="/Blog/posts/programming/2019-07-03-PCShare-SSH.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/Blog/categories/programming//" class="article-tag-list-link color2">programming</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/posts/programming/2019-07-03-PCShare-SSH.html">阅读全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-WinRar目录穿越漏洞利用实验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/posts/programming/2019-07-01-WinRar目录穿越漏洞利用实验.html">WinRar目录穿越漏洞利用实验</a>
-    </h1>
-  
-
-        
-        <a href="/Blog/posts/programming/2019-07-01-WinRar目录穿越漏洞利用实验.html" class="archive-article-date">
-  	<time datetime="2019-07-01T02:06:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h1><ol>
-<li>理解WinRar目录穿越漏洞（CVE-2018-20250）的原理；</li>
-<li>掌握漏洞利用方法。</li>
-</ol>
-<h1 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h1><p>手动构造含有“恶意木马”的压缩文件，实现右键解压后，自动将“恶意木马”释放至系统启动菜单中。</p>
-        
-          <a class="article-more-a" href="/Blog/posts/programming/2019-07-01-WinRar目录穿越漏洞利用实验.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">WinRar</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/Blog/categories/programming//" class="article-tag-list-link color2">programming</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/posts/programming/2019-07-01-WinRar目录穿越漏洞利用实验.html">阅读全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-DVWA-SQL注入实验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/posts/programming/2019-06-28-DVWA-SQL注入实验.html">DVWA_SQL手动注入实验</a>
-    </h1>
-  
-
-        
-        <a href="/Blog/posts/programming/2019-06-28-DVWA-SQL注入实验.html" class="archive-article-date">
-  	<time datetime="2019-06-28T12:21:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h1><ol>
-<li>掌握SQL注入攻击的基本原理</li>
-<li>掌握识别SQL注入点并利用其进行攻击的基本方法</li>
-</ol>
-<h1 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h1><p>采用SQL注入的方法，针对DVWA Medium模式下的SQL Injection模块进行攻击，获取数据库表数据信息。</p>
-        
-          <a class="article-more-a" href="/Blog/posts/programming/2019-06-28-DVWA-SQL注入实验.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/Blog/categories/programming//" class="article-tag-list-link color2">programming</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/posts/programming/2019-06-28-DVWA-SQL注入实验.html">阅读全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Rookit实验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/posts/programming/2019-06-27-Rookit实验.html">Rookit实验</a>
-    </h1>
-  
-
-        
-        <a href="/Blog/posts/programming/2019-06-27-Rookit实验.html" class="archive-article-date">
-  	<time datetime="2019-06-27T15:23:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h1><ol>
-<li>掌握windows rootkit的基本工作原理，熟练掌握并使用ssdt hook、IRP hook、DKOM等技术；</li>
-<li>掌握基本的windows核心编程，能够编写、调试windows驱动；</li>
-<li>掌握rootkit的基本使用方法。</li>
-</ol>
-<h1 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h1><ol>
-<li>开源windows kernel rootkit zwhawk的工作原理、编译与调试；</li>
-<li>zwhawk代码的修改，实现其隐藏进程的功能。</li>
-</ol>
-        
-          <a class="article-more-a" href="/Blog/posts/programming/2019-06-27-Rookit实验.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">rootkit</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/Blog/categories/programming//" class="article-tag-list-link color2">programming</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/posts/programming/2019-06-27-Rookit实验.html">阅读全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-32位汇编总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/posts/programming/2019-06-15-32位汇编总结.html">32位汇编总结</a>
-    </h1>
-  
-
-        
-        <a href="/Blog/posts/programming/2019-06-15-32位汇编总结.html" class="archive-article-date">
-  	<time datetime="2019-06-15T03:01:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>主要寄存器如下图所示：</p>
-        
-          <a class="article-more-a" href="/Blog/posts/programming/2019-06-15-32位汇编总结.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">汇编</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/Blog/categories/programming//" class="article-tag-list-link color2">programming</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/posts/programming/2019-06-15-32位汇编总结.html">阅读全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hexo文档" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/posts/programming/2018-07-03-Hexo文档.html">Hexo文档</a>
-    </h1>
-  
-
-        
-        <a href="/Blog/posts/programming/2018-07-03-Hexo文档.html" class="archive-article-date">
-  	<time datetime="2018-07-03T12:56:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="noopener">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-        
-          <a class="article-more-a" href="/Blog/posts/programming/2018-07-03-Hexo文档.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/Blog/categories/programming//" class="article-tag-list-link color2">programming</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/posts/programming/2018-07-03-Hexo文档.html">阅读全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/Blog/archives/page/2/">2</a><a class="extend next" rel="next" href="/Blog/archives/page/2/">Next &raquo;</a>
-    </nav>
   
+
+  
+
+  
+
+  
+
 
           </div>
         </div>
@@ -904,8 +341,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
